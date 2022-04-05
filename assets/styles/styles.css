@@ -22,7 +22,7 @@ html {
 }
 
 .content-container {
-  max-width: 1500px;
+  max-width: 1725px;
   width: 100%;
   height: 100%;
   background-color: white;
@@ -106,6 +106,14 @@ header {
   margin-left: 25px;
 }
 
+.header-left li a:hover {
+  font-weight: bold;
+}
+
+.header-left li a:active {
+  text-decoration: underline solid 4px;
+}
+
 .header-right {
   display: flex;
   flex-direction: row;
@@ -147,7 +155,7 @@ header {
   width: 486px;
   height: 220px;
 
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   font-family: "RockwellExtraBold", sans-serif;
   font-size: 50px;
   color: white;
@@ -164,6 +172,27 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 52px 72px;
+  box-sizing: border-box;
+}
+
+.product-list-header {
+  text-transform: uppercase;
+  font-size: 60px;
+  margin: 0;
+  margin-bottom: 38px;
+}
+
+.product-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 .product {
@@ -179,7 +208,7 @@ header {
   font-weight: 700;
   font-size: 30px;
   color: white;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   width: 156px;
   height: 66px;
   position: absolute;
@@ -235,6 +264,26 @@ header {
 .add-to-cart {
   background-color: #f1e0e0;
   margin-right: 20px;
+}
+
+.show-more {
+  width: 595px;
+  height: 105px;
+  background-color: #dbafae;
+  font-size: 40px;
+  text-transform: uppercase;
+  color: white;
+  margin-top: 72px;
+  margin-bottom: 300px;
+}
+
+.show-more:hover {
+  background-color: #f1e0e0;
+  color: black;
+}
+
+.show-more:active {
+  border: 2px solid black;
 }
 
 /* --- FOOTER --- */
