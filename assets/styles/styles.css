@@ -116,3 +116,12 @@ header {
   border-radius: 35px;
   margin-left: 2px;
 }
+
+/* --- FOOTER --- */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-top: 1px solid #000000;
+}
