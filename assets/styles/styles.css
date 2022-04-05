@@ -7,7 +7,7 @@
 body,
 html {
   margin: 0;
-  height: 100vh;
+  /* height: 100vh; */
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -18,7 +18,7 @@ html {
   height: 100%;
   display: flex;
   justify-content: center;
-  background-color: rgb(250, 229, 229);
+  background-color: #f1e0e0;
 }
 
 .content-container {
@@ -87,6 +87,7 @@ header {
 }
 
 .header-left .logo {
+  margin: 0;
   margin-right: 25px;
 }
 
@@ -154,6 +155,86 @@ header {
   text-align: center;
   align-items: center;
   margin-left: 75px;
+}
+
+/* Products */
+.main-content {
+  height: calc(100% - 384px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product {
+  height: 945px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.product-discount-tag {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 30px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  width: 156px;
+  height: 66px;
+  position: absolute;
+  top: 28px;
+  left: 344px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+
+.product-info {
+  height: calc(100% - 500px);
+  background-color: #f1e0e0;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-header {
+  font-weight: 700;
+  font-size: 45px;
+  margin: 20px 0;
+}
+
+.product-paragraph {
+  font-weight: 300;
+  font-size: 30px;
+  margin: 0;
+}
+
+.product-shop-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.product-prices {
+  font-size: 50px;
+}
+
+.product-price-top {
+  color: #890000;
+  text-decoration: line-through;
+}
+
+.product-price-bottom {
+  font-weight: 700;
+}
+
+.add-to-cart {
+  background-color: #f1e0e0;
+  margin-right: 20px;
 }
 
 /* --- FOOTER --- */
