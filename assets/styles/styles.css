@@ -256,6 +256,9 @@ ul {
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-xl);
   margin: 20px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .product-paragraph {
@@ -298,13 +301,18 @@ ul {
   margin-bottom: 300px;
 }
 
-.show-more:hover {
+.show-more:enabled:hover {
   background-color: var(--light-pink-bg);
   color: var(--default-bg-text-color);
 }
 
-.show-more:active {
+.show-more:enabled:active {
   border: 2px var(--default-border);
+}
+
+.show-more:disabled {
+  background-color: var(--grey-bg);
+  color: var(--default-bg-text-color);
 }
 
 /* --- FOOTER --- */
