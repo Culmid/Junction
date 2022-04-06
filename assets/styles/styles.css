@@ -214,7 +214,6 @@ ul {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-content: flex-start;
 }
 
 .product {
@@ -223,6 +222,7 @@ ul {
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-bottom: 72px;
 }
 
 .product-discount-tag {
@@ -295,7 +295,6 @@ ul {
   font-size: var(--font-size-large);
   text-transform: uppercase;
   color: var(--dark-bg-text-color);
-  margin-top: 72px;
   margin-bottom: 300px;
 }
 
