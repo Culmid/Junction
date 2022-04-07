@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Junction, An eCom example website." />
+    <title>Junction (Product)</title>
+
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="assets/styles/product.css" />
+
+    <!-- Font - Roboto (300/400/700) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tab Icon - Arrows -->
+    <link
+      rel="icon"
+      href="./assets/images/arrow-down-up-across-line-solid.svg"
+    />
+
+    <!-- Critical Preloads -->
+    <link rel="preload" as="style" href="./assets/styles/product.css" />
+    <link rel="preload" as="image" href="./assets/images/image-banner.png" />
+  </head>
+  <div class="page-wrapper">
+      <div class="page-content-container">
+        <header>
+          <div class="discount-banner">free shipping on orders over R 600</div>
+          <div class="page-header">
+            <div class="page-header-left">
+              <h1 class="page-header-logo">
+                <a href="#">
+                  <img src="assets/images/Logo.svg" alt="Logo" />
+                </a>
+              </h1>
+              <nav>
+                <ul>
+                  <li><a href="#">what's new</a></li>
+                  <li><a href="#">specials</a></li>
+                  <li><a href="#">on sale</a></li>
+                  <li><a href="#">contact</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="page-header-right">
+              <button class="page-header-cart">
+                <img src="assets/images/cart.svg" alt="Cart" />
+                <div class="page-header-cart-count">0</div>
+              </button>
+              <button class="page-header-profile-pic">
+                <img src="assets/images/profile.png" alt="Profile Picture" />
+              </button>
+            </div>
+          </div>
+        </header>
+        <main>
+          <div class="image-banner">
+            <div class="image-banner-message">30% off all Winter stock</div>
+          </div>
+          <div class="main-content-container">
+            <div class="single-product">
+              <img src="./assets/images/product.png" alt="Single Product Image" style="height: 800px; width: 800px;">
+              <div class="single-product-info">
+                <div class="single-product-description">
+                  <h2 class="single-product-header" >Analog Quartz Clock</h2>
+                  <h3 class="single-product-sub-header">By <span>Q&Q</span></h3>
+                  <p class="single-product-paragraph">
+                    An analog clock by Q&Q that will make both the home and office more professional. Never lose track of time again.
+                  </p>
+                </div>
+                <div class="single-product-shop-info">
+                  <div class="product-prices">
+                        <div class="product-price-top">R 19, 529.00</div>
+                        <div class="product-price-bottom">R 17, 390.00</div>
+                  </div>
+                  <button class="dark-pink-button">add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer>
+          <h2 class="page-footer-logo">
+            <a href="#">
+              <img src="assets/images/Logo-Footer.svg" alt="Logo" />
+            </a>
+          </h2>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
