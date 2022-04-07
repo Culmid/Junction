@@ -34,6 +34,7 @@
 @font-face {
   font-family: "RockwellExtraBold";
   src: url("../fonts/Rockwell-ExtraBold.otf") format("opentype");
+  font-display: swap;
 }
 
 /* --- GENERAL --- */

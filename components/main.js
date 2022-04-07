@@ -57,7 +57,6 @@ function mainContent() {
       return products.slice(productIndex, (productIndex += 3));
     })
     .then((data) => {
-      console.log(data);
       data.forEach((productInfo) => {
         productList.appendChild(product(productInfo));
       });
@@ -168,6 +167,9 @@ function product({
   const cartImage = document.createElement("img");
   cartImage.src = "./assets/images/add-to-cart.svg";
   cartImage.alt = "Add to Cart";
+  // Explicit Image Height/Width
+  cartImage.style.width = "61px";
+  cartImage.style.height = "63px";
   addToCart.appendChild(cartImage);
 
   return listItem;
