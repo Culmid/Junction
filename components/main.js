@@ -31,36 +31,36 @@ function mainContent() {
   productList.className = "product-list";
   mainContentContainer.appendChild(productList);
 
-  const products = [
-    {
-      name: "Mac Book Pro",
-      description:
-        "Mac Book Pro is made by Apple Computers and contains a powerful i7 processor.",
-      price: 19529.0,
-      discounted_price: 17390.0,
-      image: "./assets/images/product.png",
-    },
-    {
-      name: "Mac Book Pro",
-      description:
-        "Mac Book Pro is made by Apple Computers and contains a powerful i7 processor.",
-      price: 17390.0,
-      discounted_price: 17390.0,
-      image: "./assets/images/product.png",
-    },
-    {
-      name: "Mac Book Pro",
-      description:
-        "Mac Book Pro is made by Apple Computers and contains a powerful i7 processor.",
-      price: 19529.0,
-      discounted_price: 17390.0,
-      image: "./assets/images/product.png",
-    },
-  ];
+  const products = [];
+  let productIndex = 0;
 
-  products.forEach((productInfo) => {
-    productList.appendChild(product(productInfo));
-  });
+  fetch("https://yoco-students-api-server.herokuapp.com/v1/junction/")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((item) => products.push(item));
+      return products.slice(productIndex, (productIndex += 3));
+    })
+    .catch((error) => {
+      console.log(error);
+      for (let i = 0; i < 10; i++) {
+        products.push({
+          id: i,
+          name: "Mac Book Pro",
+          description:
+            "Mac Book Pro is made by Apple Computers and contains a powerful i7 processor.",
+          price: 19529.0,
+          discounted_price: 17390.0,
+          image: "./assets/images/product.png",
+        });
+      }
+
+      return products.slice(productIndex, (productIndex += 3));
+    })
+    .then((data) => {
+      data.forEach((productInfo) => {
+        productList.appendChild(product(productInfo));
+      });
+    });
 
   const showMore = document.createElement("button");
   showMore.className = "show-more";
@@ -68,24 +68,44 @@ function mainContent() {
   mainContentContainer.appendChild(showMore);
 
   showMore.addEventListener("click", () => {
-    products.forEach((productInfo) => {
-      productList.appendChild(product(productInfo));
-    });
+    const data = products.slice(productIndex, (productIndex += 3));
+
+    if (data.length > 0) {
+      data.forEach((productInfo) => {
+        productList.appendChild(product(productInfo));
+      });
+    }
+
+    if (data.length < 3) {
+      showMore.disabled = true;
+    }
   });
 
   return mainContentContainer;
 }
 
-function product({ name, description, price, discounted_price, image }) {
+function product({
+  id,
+  name,
+  description,
+  price,
+  discounted_price,
+  image,
+  company,
+}) {
   const listItem = document.createElement("li");
 
   const product = document.createElement("div");
   product.className = "product";
+  product.id = id;
   listItem.appendChild(product);
 
   const prodImg = document.createElement("img");
   prodImg.src = image;
   prodImg.alt = "Product";
+  // Explicit Height/Width
+  prodImg.style.height = "var(--product-image-size)";
+  prodImg.style.width = "var(--product-image-size)";
   product.appendChild(prodImg);
 
   if (discounted_price < price) {
@@ -111,7 +131,13 @@ function product({ name, description, price, discounted_price, image }) {
 
   const productParagraph = document.createElement("p");
   productParagraph.className = "product-paragraph";
-  productParagraph.innerHTML = description;
+
+  if (description) {
+    productParagraph.innerHTML = description;
+  } else {
+    productParagraph.innerHTML = `Company: ${company}. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
+  }
+
   productDescription.appendChild(productParagraph);
 
   const productShopInfo = document.createElement("div");
@@ -141,6 +167,9 @@ function product({ name, description, price, discounted_price, image }) {
   const cartImage = document.createElement("img");
   cartImage.src = "./assets/images/add-to-cart.svg";
   cartImage.alt = "Add to Cart";
+  // Explicit Image Height/Width
+  cartImage.style.width = "61px";
+  cartImage.style.height = "63px";
   addToCart.appendChild(cartImage);
 
   return listItem;

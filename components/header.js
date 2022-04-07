@@ -48,6 +48,9 @@ function pageHeaderLogo(params) {
   const logoImage = document.createElement("img");
   logoImage.src = "./assets/images/logo.svg";
   logoImage.alt = "Logo";
+  // Explicit Image Height/Width
+  logoImage.style.width = "215px";
+  logoImage.style.height = "46px";
   pageHeaderLogoLink.appendChild(logoImage);
 
   return pageHeaderLogo;
@@ -85,6 +88,9 @@ function pageHeaderCart() {
   const cartImg = document.createElement("img");
   cartImg.src = "./assets/images/cart.svg";
   cartImg.alt = "Cart";
+  // Explicit Height/Width
+  cartImg.style.width = "39px";
+  cartImg.style.height = "39px";
   button.appendChild(cartImg);
 
   const cartCount = document.createElement("div");
@@ -102,6 +108,9 @@ function pageHeaderProfilePic() {
   const profilePic = document.createElement("img");
   profilePic.src = "./assets/images/profile.png";
   profilePic.alt = "Profile Picture";
+  // Explicit Image Height/Width
+  profilePic.style.width = "74px";
+  profilePic.style.height = "74px";
   button.appendChild(profilePic);
 
   return button;
