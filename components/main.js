@@ -95,10 +95,14 @@ function product({
 }) {
   const listItem = document.createElement("li");
 
+  const linkToSingleProduct = document.createElement("a");
+  linkToSingleProduct.href = "product.html";
+  listItem.appendChild(linkToSingleProduct);
+
   const product = document.createElement("div");
   product.className = "product";
   product.id = id;
-  listItem.appendChild(product);
+  linkToSingleProduct.appendChild(product);
 
   const prodImg = document.createElement("img");
   prodImg.src = image;
