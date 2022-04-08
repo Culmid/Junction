@@ -42,7 +42,7 @@ function pageHeaderLogo() {
   pageHeaderLogo.className = "page-header-logo";
 
   const pageHeaderLogoLink = document.createElement("a");
-  pageHeaderLogoLink.href = "#";
+  pageHeaderLogoLink.href = "/";
   pageHeaderLogo.appendChild(pageHeaderLogoLink);
 
   const logoImage = document.createElement("img");

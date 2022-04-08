@@ -6,7 +6,7 @@ function footer() {
   footer.appendChild(pageFooterLogo);
 
   const link = document.createElement("a");
-  link.href = "#";
+  link.href = "/";
   pageFooterLogo.appendChild(link);
 
   const logoImg = document.createElement("img");
