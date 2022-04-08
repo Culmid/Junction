@@ -4,9 +4,9 @@ function mainHome(data, changeCartItems) {
   return main;
 }
 
-function mainProduct() {
+function mainProduct(data) {
   const main = mainBase();
-  main.appendChild(singleProduct());
+  main.appendChild(singleProduct(data));
   return main;
 }
 
@@ -101,7 +101,7 @@ function product(
   product.appendChild(productInfo);
 
   const linkToSingleProduct = document.createElement("a");
-  linkToSingleProduct.href = "product.html";
+  linkToSingleProduct.href = "product.html?id=" + id;
   productInfo.appendChild(linkToSingleProduct);
 
   const productDescription = document.createElement("div");
@@ -170,7 +170,15 @@ function formatPrice(price) {
   );
 }
 
-function singleProduct() {
+function singleProduct({
+  id,
+  name,
+  description,
+  price,
+  discounted_price,
+  image,
+  company,
+}) {
   const mainContent = document.createElement("div");
   mainContent.className = "main-content-container";
 
@@ -179,7 +187,7 @@ function singleProduct() {
   mainContent.appendChild(singleProd);
 
   const singleProdImg = document.createElement("img");
-  singleProdImg.src = "./assets/images/product.png";
+  singleProdImg.src = image;
   singleProdImg.alt = "Single Product Image";
   // Explicit Height/Width
   singleProdImg.style.height = "800px";
@@ -196,21 +204,20 @@ function singleProduct() {
 
   const singleProdHeader = document.createElement("h2");
   singleProdHeader.className = "single-product-header";
-  singleProdHeader.innerHTML = "Analog Quartz Clock";
+  singleProdHeader.innerHTML = name;
   singleProdDescription.appendChild(singleProdHeader);
 
   const singleProdSubHeader = document.createElement("h3");
   singleProdSubHeader.className = "single-product-sub-header";
   const span = document.createElement("span");
-  span.innerHTML = "Q&Q";
+  span.innerHTML = company;
   singleProdSubHeader.innerHTML = "By ";
   singleProdSubHeader.appendChild(span);
   singleProdDescription.appendChild(singleProdSubHeader);
 
   const singleProdParagraph = document.createElement("p");
   singleProdParagraph.className = "single-product-paragraph";
-  singleProdParagraph.innerHTML =
-    "An analog clock by Q&Q that will make both the home and office more professional. Never lose track of time again.";
+  singleProdParagraph.innerHTML = description;
   singleProdDescription.appendChild(singleProdParagraph);
 
   const singleProdShop = document.createElement("div");
@@ -221,14 +228,16 @@ function singleProduct() {
   productPrices.className = "product-prices";
   singleProdShop.appendChild(productPrices);
 
-  const productPriceTop = document.createElement("div");
-  productPriceTop.className = "product-price-top";
-  productPriceTop.innerHTML = formatPrice(19529);
-  productPrices.appendChild(productPriceTop);
+  if (discounted_price < price) {
+    const productPriceTop = document.createElement("div");
+    productPriceTop.className = "product-price-top";
+    productPriceTop.innerHTML = formatPrice(price);
+    productPrices.appendChild(productPriceTop);
+  }
 
   const productPriceBottom = document.createElement("div");
   productPriceBottom.className = "product-price-bottom";
-  productPriceBottom.innerHTML = formatPrice(17390);
+  productPriceBottom.innerHTML = formatPrice(discounted_price);
   productPrices.appendChild(productPriceBottom);
 
   const addToCart = document.createElement("button");
