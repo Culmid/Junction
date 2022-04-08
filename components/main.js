@@ -113,7 +113,7 @@ function product({
   product.appendChild(prodImg);
 
   if (discounted_price < price) {
-    const discount = Math.ceil((1 - discounted_price / price) * 100);
+    const discount = Math.round((1 - discounted_price / price) * 100);
     const discountTag = document.createElement("div");
     discountTag.className = "product-discount-tag";
     discountTag.innerHTML = `${discount}% off`;
