@@ -290,15 +290,10 @@ ul {
 .add-to-cart {
   background-color: var(--light-pink-bg);
   margin-right: 20px;
-  border-radius: 5px;
 }
 
-.add-to-cart:hover {
-  background-color: var(--dark-pink-bg);
-}
-
-.add-to-cart:active {
-  background-color: var(--default-bg-color);
+.add-to-cart img:active {
+  filter: contrast(0);
 }
 
 .show-more {
