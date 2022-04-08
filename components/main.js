@@ -1,8 +1,8 @@
-function main() {
+function main(data) {
   const main = document.createElement("main");
 
   main.appendChild(imageBanner());
-  main.appendChild(mainContent());
+  main.appendChild(mainContent(data));
   return main;
 }
 
@@ -18,7 +18,7 @@ function imageBanner() {
   return imageBanner;
 }
 
-function mainContent() {
+function mainContent(products) {
   const mainContentContainer = document.createElement("div");
   mainContentContainer.className = "main-content-container";
 
@@ -31,36 +31,10 @@ function mainContent() {
   productList.className = "product-list";
   mainContentContainer.appendChild(productList);
 
-  const products = [];
   let productIndex = 0;
-
-  fetch("https://yoco-students-api-server.herokuapp.com/v1/junction/")
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((item) => products.push(item));
-      return products.slice(productIndex, (productIndex += 3));
-    })
-    .catch((error) => {
-      console.log(error);
-      for (let i = 0; i < 10; i++) {
-        products.push({
-          id: i,
-          name: "Mac Book Pro",
-          description:
-            "Mac Book Pro is made by Apple Computers and contains a powerful i7 processor.",
-          price: 19529.0,
-          discounted_price: 17390.0,
-          image: "./assets/images/product.png",
-        });
-      }
-
-      return products.slice(productIndex, (productIndex += 3));
-    })
-    .then((data) => {
-      data.forEach((productInfo) => {
-        productList.appendChild(product(productInfo));
-      });
-    });
+  products.slice(productIndex, (productIndex += 3)).forEach((productInfo) => {
+    productList.appendChild(product(productInfo));
+  });
 
   const showMore = document.createElement("button");
   showMore.className = "show-more";
@@ -68,15 +42,15 @@ function mainContent() {
   mainContentContainer.appendChild(showMore);
 
   showMore.addEventListener("click", () => {
-    const data = products.slice(productIndex, (productIndex += 3));
+    const productSlice = products.slice(productIndex, (productIndex += 3));
 
-    if (data.length > 0) {
-      data.forEach((productInfo) => {
+    if (productSlice.length > 0) {
+      productSlice.forEach((productInfo) => {
         productList.appendChild(product(productInfo));
       });
     }
 
-    if (data.length < 3) {
+    if (productSlice.length < 3) {
       showMore.disabled = true;
     }
   });
