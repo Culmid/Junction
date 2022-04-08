@@ -37,7 +37,7 @@ function pageHeader() {
   return pageHeader;
 }
 
-function pageHeaderLogo(params) {
+function pageHeaderLogo() {
   const pageHeaderLogo = document.createElement("h1");
   pageHeaderLogo.className = "page-header-logo";
 
@@ -116,4 +116,9 @@ function pageHeaderProfilePic() {
   return button;
 }
 
-export default header;
+function updateCartItems(cartItemCount) {
+  document.getElementsByClassName("page-header-cart-count")[0].innerHTML =
+    cartItemCount;
+}
+
+export { header, updateCartItems };

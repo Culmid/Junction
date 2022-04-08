@@ -1,6 +1,12 @@
-import header from "./components/header.js";
+import { header, updateCartItems } from "./components/header.js";
 import main from "./components/main.js";
 import footer from "./components/footer.js";
+
+let cartItems = 0;
+const changeCartItems = (change) => {
+  cartItems += change;
+  updateCartItems(cartItems);
+};
 
 async function home() {
   let data;
@@ -43,15 +49,14 @@ function renderHome(data) {
   pageWrapper.appendChild(pageContentContainer);
 
   pageContentContainer.appendChild(header());
-  pageContentContainer.appendChild(main(data));
+  pageContentContainer.appendChild(main(data, changeCartItems));
   pageContentContainer.appendChild(footer());
 
   return pageWrapper;
 }
 
 // Option 1
-const homeElement = await home();
-document.body.appendChild(homeElement);
+document.body.appendChild(await home());
 
 // Option 2
 // home().then((homeElement) => document.body.appendChild(homeElement));

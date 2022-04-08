@@ -1,8 +1,8 @@
-function main(data) {
+function main(data, changeCartItems) {
   const main = document.createElement("main");
 
   main.appendChild(imageBanner());
-  main.appendChild(mainContent(data));
+  main.appendChild(mainContent(data, changeCartItems));
   return main;
 }
 
@@ -18,7 +18,7 @@ function imageBanner() {
   return imageBanner;
 }
 
-function mainContent(products) {
+function mainContent(products, changeCartItems) {
   const mainContentContainer = document.createElement("div");
   mainContentContainer.className = "main-content-container";
 
@@ -33,7 +33,7 @@ function mainContent(products) {
 
   let productIndex = 0;
   products.slice(productIndex, (productIndex += 3)).forEach((productInfo) => {
-    productList.appendChild(product(productInfo));
+    productList.appendChild(product(productInfo, changeCartItems));
   });
 
   const showMore = document.createElement("button");
@@ -46,7 +46,7 @@ function mainContent(products) {
 
     if (productSlice.length > 0) {
       productSlice.forEach((productInfo) => {
-        productList.appendChild(product(productInfo));
+        productList.appendChild(product(productInfo, changeCartItems));
       });
     }
 
@@ -58,25 +58,16 @@ function mainContent(products) {
   return mainContentContainer;
 }
 
-function product({
-  id,
-  name,
-  description,
-  price,
-  discounted_price,
-  image,
-  company,
-}) {
+function product(
+  { id, name, description, price, discounted_price, image, company },
+  changeCartItems
+) {
   const listItem = document.createElement("li");
-
-  const linkToSingleProduct = document.createElement("a");
-  linkToSingleProduct.href = "product.html";
-  listItem.appendChild(linkToSingleProduct);
 
   const product = document.createElement("div");
   product.className = "product";
   product.id = id;
-  linkToSingleProduct.appendChild(product);
+  listItem.appendChild(product);
 
   const prodImg = document.createElement("img");
   prodImg.src = image;
@@ -98,9 +89,13 @@ function product({
   productInfo.className = "product-info";
   product.appendChild(productInfo);
 
+  const linkToSingleProduct = document.createElement("a");
+  linkToSingleProduct.href = "product.html";
+  productInfo.appendChild(linkToSingleProduct);
+
   const productDescription = document.createElement("div");
   productDescription.className = "product-description";
-  productInfo.appendChild(productDescription);
+  linkToSingleProduct.appendChild(productDescription);
 
   const productHeader = document.createElement("h3");
   productHeader.className = "product-header";
@@ -109,12 +104,7 @@ function product({
 
   const productParagraph = document.createElement("p");
   productParagraph.className = "product-paragraph";
-
-  if (description) {
-    productParagraph.innerHTML = description;
-  } else {
-    productParagraph.innerHTML = `Company: ${company}. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
-  }
+  productParagraph.innerHTML = description;
 
   productDescription.appendChild(productParagraph);
 
@@ -148,6 +138,10 @@ function product({
   // Explicit Image Height/Width
   cartImage.style.width = "61px";
   cartImage.style.height = "63px";
+  cartImage.addEventListener("click", () => {
+    changeCartItems(1);
+  });
+
   addToCart.appendChild(cartImage);
 
   return listItem;
