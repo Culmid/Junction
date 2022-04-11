@@ -292,6 +292,10 @@ ul {
   margin-right: 20px;
 }
 
+.add-to-cart img:active {
+  filter: contrast(0);
+}
+
 .show-more {
   width: 595px;
   height: 105px;

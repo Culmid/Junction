@@ -1,8 +1,19 @@
-function main() {
+function mainHome(data, changeCartItems) {
+  const main = mainBase();
+  main.appendChild(mainContent(data, changeCartItems));
+  return main;
+}
+
+function mainProduct(data) {
+  const main = mainBase();
+  main.appendChild(singleProduct(data));
+  return main;
+}
+
+function mainBase() {
   const main = document.createElement("main");
 
   main.appendChild(imageBanner());
-  main.appendChild(mainContent());
   return main;
 }
 
@@ -18,7 +29,7 @@ function imageBanner() {
   return imageBanner;
 }
 
-function mainContent() {
+function mainContent(products, changeCartItems) {
   const mainContentContainer = document.createElement("div");
   mainContentContainer.className = "main-content-container";
 
@@ -31,36 +42,10 @@ function mainContent() {
   productList.className = "product-list";
   mainContentContainer.appendChild(productList);
 
-  const products = [];
   let productIndex = 0;
-
-  fetch("https://yoco-students-api-server.herokuapp.com/v1/junction/")
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((item) => products.push(item));
-      return products.slice(productIndex, (productIndex += 3));
-    })
-    .catch((error) => {
-      console.log(error);
-      for (let i = 0; i < 10; i++) {
-        products.push({
-          id: i,
-          name: "Mac Book Pro",
-          description:
-            "Mac Book Pro is made by Apple Computers and contains a powerful i7 processor.",
-          price: 19529.0,
-          discounted_price: 17390.0,
-          image: "./assets/images/product.png",
-        });
-      }
-
-      return products.slice(productIndex, (productIndex += 3));
-    })
-    .then((data) => {
-      data.forEach((productInfo) => {
-        productList.appendChild(product(productInfo));
-      });
-    });
+  products.slice(productIndex, (productIndex += 3)).forEach((productInfo) => {
+    productList.appendChild(product(productInfo, changeCartItems));
+  });
 
   const showMore = document.createElement("button");
   showMore.className = "show-more";
@@ -68,15 +53,15 @@ function mainContent() {
   mainContentContainer.appendChild(showMore);
 
   showMore.addEventListener("click", () => {
-    const data = products.slice(productIndex, (productIndex += 3));
+    const productSlice = products.slice(productIndex, (productIndex += 3));
 
-    if (data.length > 0) {
-      data.forEach((productInfo) => {
-        productList.appendChild(product(productInfo));
+    if (productSlice.length > 0) {
+      productSlice.forEach((productInfo) => {
+        productList.appendChild(product(productInfo, changeCartItems));
       });
     }
 
-    if (data.length < 3) {
+    if (productSlice.length < 3) {
       showMore.disabled = true;
     }
   });
@@ -84,15 +69,10 @@ function mainContent() {
   return mainContentContainer;
 }
 
-function product({
-  id,
-  name,
-  description,
-  price,
-  discounted_price,
-  image,
-  company,
-}) {
+function product(
+  { id, name, description, price, discounted_price, image, company },
+  changeCartItems
+) {
   const listItem = document.createElement("li");
 
   const product = document.createElement("div");
@@ -109,7 +89,7 @@ function product({
   product.appendChild(prodImg);
 
   if (discounted_price < price) {
-    const discount = Math.ceil((1 - discounted_price / price) * 100);
+    const discount = Math.round((1 - discounted_price / price) * 100);
     const discountTag = document.createElement("div");
     discountTag.className = "product-discount-tag";
     discountTag.innerHTML = `${discount}% off`;
@@ -120,9 +100,13 @@ function product({
   productInfo.className = "product-info";
   product.appendChild(productInfo);
 
+  const linkToSingleProduct = document.createElement("a");
+  linkToSingleProduct.href = "product.html?id=" + id;
+  productInfo.appendChild(linkToSingleProduct);
+
   const productDescription = document.createElement("div");
   productDescription.className = "product-description";
-  productInfo.appendChild(productDescription);
+  linkToSingleProduct.appendChild(productDescription);
 
   const productHeader = document.createElement("h3");
   productHeader.className = "product-header";
@@ -131,12 +115,7 @@ function product({
 
   const productParagraph = document.createElement("p");
   productParagraph.className = "product-paragraph";
-
-  if (description) {
-    productParagraph.innerHTML = description;
-  } else {
-    productParagraph.innerHTML = `Company: ${company}. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
-  }
+  productParagraph.innerHTML = description;
 
   productDescription.appendChild(productParagraph);
 
@@ -170,6 +149,10 @@ function product({
   // Explicit Image Height/Width
   cartImage.style.width = "61px";
   cartImage.style.height = "63px";
+  cartImage.addEventListener("click", () => {
+    changeCartItems(1);
+  });
+
   addToCart.appendChild(cartImage);
 
   return listItem;
@@ -187,4 +170,82 @@ function formatPrice(price) {
   );
 }
 
-export default main;
+function singleProduct({
+  id,
+  name,
+  description,
+  price,
+  discounted_price,
+  image,
+  company,
+}) {
+  const mainContent = document.createElement("div");
+  mainContent.className = "main-content-container";
+
+  const singleProd = document.createElement("div");
+  singleProd.className = "single-product";
+  mainContent.appendChild(singleProd);
+
+  const singleProdImg = document.createElement("img");
+  singleProdImg.src = image;
+  singleProdImg.alt = "Single Product Image";
+  // Explicit Height/Width
+  singleProdImg.style.height = "800px";
+  singleProdImg.style.width = "800px";
+  singleProd.appendChild(singleProdImg);
+
+  const singleProdInfo = document.createElement("div");
+  singleProdInfo.className = "single-product-info";
+  singleProd.appendChild(singleProdInfo);
+
+  const singleProdDescription = document.createElement("div");
+  singleProdDescription.className = "single-product-description";
+  singleProdInfo.appendChild(singleProdDescription);
+
+  const singleProdHeader = document.createElement("h2");
+  singleProdHeader.className = "single-product-header";
+  singleProdHeader.innerHTML = name;
+  singleProdDescription.appendChild(singleProdHeader);
+
+  const singleProdSubHeader = document.createElement("h3");
+  singleProdSubHeader.className = "single-product-sub-header";
+  const span = document.createElement("span");
+  span.innerHTML = company;
+  singleProdSubHeader.innerHTML = "By ";
+  singleProdSubHeader.appendChild(span);
+  singleProdDescription.appendChild(singleProdSubHeader);
+
+  const singleProdParagraph = document.createElement("p");
+  singleProdParagraph.className = "single-product-paragraph";
+  singleProdParagraph.innerHTML = description;
+  singleProdDescription.appendChild(singleProdParagraph);
+
+  const singleProdShop = document.createElement("div");
+  singleProdShop.className = "single-product-shop-info";
+  singleProdInfo.appendChild(singleProdShop);
+
+  const productPrices = document.createElement("div");
+  productPrices.className = "product-prices";
+  singleProdShop.appendChild(productPrices);
+
+  if (discounted_price < price) {
+    const productPriceTop = document.createElement("div");
+    productPriceTop.className = "product-price-top";
+    productPriceTop.innerHTML = formatPrice(price);
+    productPrices.appendChild(productPriceTop);
+  }
+
+  const productPriceBottom = document.createElement("div");
+  productPriceBottom.className = "product-price-bottom";
+  productPriceBottom.innerHTML = formatPrice(discounted_price);
+  productPrices.appendChild(productPriceBottom);
+
+  const addToCart = document.createElement("button");
+  addToCart.className = "dark-pink-button";
+  addToCart.innerHTML = "add to cart";
+  singleProdShop.appendChild(addToCart);
+
+  return mainContent;
+}
+
+export { mainHome, mainProduct };

@@ -37,12 +37,12 @@ function pageHeader() {
   return pageHeader;
 }
 
-function pageHeaderLogo(params) {
+function pageHeaderLogo() {
   const pageHeaderLogo = document.createElement("h1");
   pageHeaderLogo.className = "page-header-logo";
 
   const pageHeaderLogoLink = document.createElement("a");
-  pageHeaderLogoLink.href = "#";
+  pageHeaderLogoLink.href = "/";
   pageHeaderLogo.appendChild(pageHeaderLogoLink);
 
   const logoImage = document.createElement("img");
@@ -116,4 +116,9 @@ function pageHeaderProfilePic() {
   return button;
 }
 
-export default header;
+function updateCartItems(cartItemCount) {
+  document.getElementsByClassName("page-header-cart-count")[0].innerHTML =
+    cartItemCount;
+}
+
+export { header, updateCartItems };
