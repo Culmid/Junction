@@ -1,3 +1,4 @@
+import { addToCart } from "./shoppingCart.js";
 import { calculateDiscount } from "./utils.js";
 
 /**
@@ -99,7 +100,7 @@ function formatPrice(price) {
 }
 
 function onAddToCart(product) {
-  console.log(product.id);
+  addToCart(product);
 }
 
 export { generateProductCard };
