@@ -1,3 +1,5 @@
+import { calculateDiscount } from "./utils.js";
+
 /**
  * Generate a product card for the given product.
  * @param {Object} product Product object to build product card.
@@ -24,7 +26,7 @@ function generateProductCard({
   product.appendChild(prodImg);
 
   if (discounted_price < price) {
-    const discount = Math.round((1 - discounted_price / price) * 100);
+    const discount = calculateDiscount(price, discounted_price);
     const discountTag = document.createElement("div");
     discountTag.classList.add("product-discount-tag");
     discountTag.innerHTML = `${discount}% off`;

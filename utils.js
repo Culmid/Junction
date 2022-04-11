@@ -13,4 +13,14 @@ async function doFetch(url) {
   }
 }
 
-export { doFetch };
+/**
+ * Calculate percentage discount on prices.
+ * @param {Number} price Initial product price.
+ * @param {Number} discountedPrice Discounted product price.
+ * @returns Percentage discount.
+ */
+function calculateDiscount(price, discountedPrice) {
+  return Math.round((1 - discountedPrice / price) * 100);
+}
+
+export { doFetch, calculateDiscount };
