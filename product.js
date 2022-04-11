@@ -5,8 +5,8 @@ async function product() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
-  const prod = await doFetch(API_URL + "product/" + id);
-  console.log(prod);
+  const currentProduct = await doFetch(API_URL + "product/" + id);
+  console.log(currentProduct);
 }
 
 product();
