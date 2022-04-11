@@ -5,40 +5,33 @@ import { calculateDiscount } from "./utils.js";
  * @param {Object} product Product object to build product card.
  * @returns Div containing the product card.
  */
-function generateProductCard({
-  id,
-  name,
-  description,
-  price,
-  discounted_price,
-  image,
-}) {
-  const product = document.createElement("div");
-  product.classList.add("product");
-  product.id = id;
+function generateProductCard(product) {
+  const productDiv = document.createElement("div");
+  productDiv.classList.add("product");
+  productDiv.id = product.id;
 
   const prodImg = document.createElement("img");
-  prodImg.src = image;
+  prodImg.src = product.image;
   prodImg.alt = "Product";
   // Explicit Height/Width
   prodImg.style.height = "var(--product-image-size)";
   prodImg.style.width = "var(--product-image-size)";
-  product.appendChild(prodImg);
+  productDiv.appendChild(prodImg);
 
-  if (discounted_price < price) {
-    const discount = calculateDiscount(price, discounted_price);
+  if (product.discounted_price < product.price) {
+    const discount = calculateDiscount(product.price, product.discounted_price);
     const discountTag = document.createElement("div");
     discountTag.classList.add("product-discount-tag");
     discountTag.innerHTML = `${discount}% off`;
-    product.appendChild(discountTag);
+    productDiv.appendChild(discountTag);
   }
 
   const productInfo = document.createElement("div");
   productInfo.classList.add("product-info");
-  product.appendChild(productInfo);
+  productDiv.appendChild(productInfo);
 
   const linkToSingleProduct = document.createElement("a");
-  linkToSingleProduct.href = "product.html?id=" + id;
+  linkToSingleProduct.href = "product.html?id=" + product.id;
   productInfo.appendChild(linkToSingleProduct);
 
   const productDescription = document.createElement("div");
@@ -47,12 +40,12 @@ function generateProductCard({
 
   const productHeader = document.createElement("h3");
   productHeader.classList.add("product-header");
-  productHeader.innerHTML = name;
+  productHeader.innerHTML = product.name;
   productDescription.appendChild(productHeader);
 
   const productParagraph = document.createElement("p");
   productParagraph.classList.add("product-paragraph");
-  productParagraph.innerHTML = description;
+  productParagraph.innerHTML = product.description;
 
   productDescription.appendChild(productParagraph);
 
@@ -64,16 +57,16 @@ function generateProductCard({
   productPrices.className = "product-prices";
   productShopInfo.appendChild(productPrices);
 
-  if (discounted_price < price) {
+  if (product.discounted_price < product.price) {
     const productPriceTop = document.createElement("div");
     productPriceTop.classList.add("product-price-top");
-    productPriceTop.innerHTML = formatPrice(price);
+    productPriceTop.innerHTML = formatPrice(product.price);
     productPrices.appendChild(productPriceTop);
   }
 
   const productPriceBottom = document.createElement("div");
   productPriceBottom.classList.add("product-price-bottom");
-  productPriceBottom.innerHTML = formatPrice(discounted_price);
+  productPriceBottom.innerHTML = formatPrice(product.discounted_price);
   productPrices.appendChild(productPriceBottom);
 
   const addToCart = document.createElement("button");
@@ -88,7 +81,9 @@ function generateProductCard({
   cartImage.style.height = "63px";
   addToCart.appendChild(cartImage);
 
-  return product;
+  addToCart.addEventListener("click", () => onAddToCart(product));
+
+  return productDiv;
 }
 
 function formatPrice(price) {
@@ -101,6 +96,10 @@ function formatPrice(price) {
       })
       .replace(",", ", ")
   );
+}
+
+function onAddToCart(product) {
+  console.log(product.id);
 }
 
 export { generateProductCard };
