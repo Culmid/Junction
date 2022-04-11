@@ -11,13 +11,17 @@ function generateProductCard(product) {
   productDiv.classList.add("product");
   productDiv.id = product.id;
 
+  const prodImgLink = document.createElement("a");
+  prodImgLink.href = "product.html?id=" + product.id;
+  productDiv.appendChild(prodImgLink);
+
   const prodImg = document.createElement("img");
   prodImg.src = product.image;
   prodImg.alt = "Product";
   // Explicit Height/Width
   prodImg.style.height = "var(--product-image-size)";
   prodImg.style.width = "var(--product-image-size)";
-  productDiv.appendChild(prodImg);
+  prodImgLink.appendChild(prodImg);
 
   if (product.discounted_price < product.price) {
     const discount = calculateDiscount(product.price, product.discounted_price);

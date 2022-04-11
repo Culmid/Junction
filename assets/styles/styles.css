@@ -226,6 +226,10 @@ ul {
   margin-bottom: 72px;
 }
 
+.product a:first-of-type {
+  height: var(--product-image-size);
+}
+
 .product-discount-tag {
   text-transform: uppercase;
   font-weight: var(--font-weight-bold);
@@ -251,6 +255,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .product-header {
