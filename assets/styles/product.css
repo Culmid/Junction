@@ -205,6 +205,9 @@ ul {
 .cart-dropdown-header {
   font-size: var(--font-size-small);
   margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .cart-dropdown-details {
