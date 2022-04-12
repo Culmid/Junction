@@ -1,3 +1,4 @@
+import { displayProduct } from "./displayProduct.js";
 import { API_URL } from "./shared.js";
 import { doFetch } from "./utils.js";
 
@@ -7,6 +8,8 @@ async function product() {
 
   const currentProduct = await doFetch(API_URL + "product/" + id);
   console.log(currentProduct);
+
+  displayProduct(currentProduct);
 }
 
 product();
