@@ -25,6 +25,11 @@ function calculateDiscount(price, discountedPrice) {
   return Math.round((1 - discountedPrice / price) * 100);
 }
 
+/**
+ * Format price in en-US format, with spaces between commas.
+ * @param {Number} price The price to format.
+ * @returns String format of price with "R" prepended.
+ */
 function formatPrice(price) {
   return (
     "R " +
@@ -37,6 +42,10 @@ function formatPrice(price) {
   );
 }
 
+/**
+ * On click operation to add product to cart (LocalStorage).
+ * @param {Object} product Product to add to cart.
+ */
 function onAddToCart(product) {
   addToCart(product);
 }

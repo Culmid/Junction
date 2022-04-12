@@ -1,5 +1,10 @@
 import { formatPrice, onAddToCart } from "./utils.js";
 
+/**
+ * Generate single product card for product.html.
+ * @param {Object} product Product object to use for generation.
+ * @returns Div containing the single product card.
+ */
 function generateSingleProductCard(product) {
   const singleProd = document.createElement("div");
   singleProd.classList.add("single-product");
