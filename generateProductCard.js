@@ -1,5 +1,5 @@
 import { addToCart } from "./shoppingCart.js";
-import { calculateDiscount } from "./utils.js";
+import { calculateDiscount, formatPrice, onAddToCart } from "./utils.js";
 
 /**
  * Generate a product card for the given product.
@@ -89,22 +89,6 @@ function generateProductCard(product) {
   addToCart.addEventListener("click", () => onAddToCart(product));
 
   return productDiv;
-}
-
-function formatPrice(price) {
-  return (
-    "R " +
-    price
-      .toLocaleString("en-US", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })
-      .replace(",", ", ")
-  );
-}
-
-function onAddToCart(product) {
-  addToCart(product);
 }
 
 export { generateProductCard };
