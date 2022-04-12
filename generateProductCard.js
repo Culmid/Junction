@@ -1,4 +1,3 @@
-import { addToCart } from "./shoppingCart.js";
 import { calculateDiscount, formatPrice, onAddToCart } from "./utils.js";
 
 /**

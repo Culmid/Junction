@@ -1,6 +1,11 @@
 import { generateProductCard } from "./generateProductCard.js";
 
 /**
+ * Maximum Product displayed at any given time
+ */
+let max_products = 0;
+
+/**
  * Display product cards in the display container.
  * @param {Array} products Array of JSON product objects.
  */
@@ -21,7 +26,7 @@ function displayProducts(products) {
   productList.classList.add("product-list");
   displayContainer.appendChild(productList);
 
-  products.forEach((product) => {
+  products.slice(max_products, (max_products += 3)).forEach((product) => {
     console.log(product);
     const listItem = document.createElement("li");
     listItem.appendChild(generateProductCard(product));
@@ -33,6 +38,22 @@ function displayProducts(products) {
   showMore.classList.add("show-more");
   showMore.innerHTML = "show more";
   displayContainer.appendChild(showMore);
+
+  showMore.addEventListener("click", () => {
+    const productSlice = products.slice(max_products, (max_products += 3));
+
+    if (productSlice.length > 0) {
+      productSlice.forEach((product) => {
+        const listItem = document.createElement("li");
+        listItem.appendChild(generateProductCard(product));
+        productList.appendChild(listItem);
+      });
+    }
+
+    if (productSlice.length < 3) {
+      showMore.disabled = true;
+    }
+  });
 }
 
 export { displayProducts };
