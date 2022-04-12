@@ -1,3 +1,5 @@
+import { displayDropdown } from "./displayDropdown.js";
+
 function handleCartHover() {
   const dropdown = document.getElementById("cart-dropdown");
   dropdown.addEventListener("mouseenter", () => {
@@ -9,6 +11,7 @@ function handleCartHover() {
 
   const cart = document.getElementById("cart");
   cart.addEventListener("mouseenter", () => {
+    displayDropdown();
     dropdown.style.display = "inline";
   });
   cart.addEventListener("mouseleave", () => {
