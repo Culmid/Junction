@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junction</title>
+
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="assets/styles/checkout.css" />
+
+    <!-- Build Scripts -->
+    <script src="./checkout.js" defer type="module"></script>
+
+    <!-- Font - Roboto (300/400/700) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tab Icon - Arrows -->
+    <link rel="icon" href="assets/images/arrow-down-up-across-line-solid.svg" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="page-content-container">
+        <header>
+          <div class="discount-banner">free shipping on orders over R 600</div>
+          <div class="page-header">
+            <div class="page-header-left">
+              <h1 class="page-header-logo">
+                <a href="#">
+                  <img src="assets/images/Logo.svg" alt="Logo" />
+                </a>
+              </h1>
+              <nav>
+                <ul>
+                  <li><a href="#">what's new</a></li>
+                  <li><a href="#">specials</a></li>
+                  <li><a href="#">on sale</a></li>
+                  <li><a href="#">contact</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="page-header-right">
+              <button class="page-header-cart" id="cart">
+                <img src="assets/images/cart.svg" alt="Cart" />
+                <div class="page-header-cart-count">0</div>
+              </button>
+              <div class="cart-dropdown" id="cart-dropdown">
+                <div class="cart-dropdown-items" id="dropdown-list">
+                  <div class="cart-dropdown-item">
+                    <div class="cart-dropdown-top">
+                      <h3 class="cart-dropdown-header">Mac Book Pro</h3>
+                      <div class="cart-dropdown-removals">
+                        <button>
+                          <img
+                            src="./assets/images/minus-solid.svg"
+                            alt="Decrease"
+                            width="15px"
+                            height="15px"
+                          />
+                        </button>
+                        <button>
+                          <img
+                            src="./assets/images/trash-solid.svg"
+                            alt="Remove"
+                            width="15px"
+                            height="15px"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                    <div class="cart-dropdown-details">
+                      <img
+                        src="./assets/images/product.png"
+                        alt="Product"
+                        height="70px"
+                        width="70px"
+                      />
+                      <div class="cart-dropdown-prices">
+                        <p><span>Quantity:</span> 1</p>
+                        <p>x</p>
+                        <p><span>Price:</span> R 19, 529.00</p>
+                        <p>= R 19, 529.00</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-dropdown-summary">
+                  <div
+                    class="cart-dropdown-summary-items"
+                    id="cart-dropdown-count"
+                  >
+                    <span>Items:</span> 24
+                  </div>
+                  <div
+                    class="cart-dropdown-summary-total"
+                    id="cart-dropdown-total"
+                  >
+                    <span>Total:</span> R 60, 000.00
+                  </div>
+                </div>
+                <button class="clear-cart" id="clear-cart">Clear Cart</button>
+              </div>
+              <button class="page-header-profile-pic">
+                <img src="assets/images/profile.png" alt="Profile Picture" />
+              </button>
+            </div>
+          </div>
+        </header>
+        <main>
+          <div class="image-banner">
+            <div class="image-banner-message">30% off all Winter stock</div>
+          </div>
+          <div class="main-content-container" id="display-container">
+            <div class="checkout-container">
+              <div class="checkout-top">
+                <h2>Your cart has <span>3</span> items</h2>
+                <button>Clear cart</button>
+              </div>
+              <ul class="checkout-items">
+                <li>
+                  <div class="checkout-item">
+                    <div class="checkout-item-left">
+                      <img
+                        src="./assets/images/product.png"
+                        alt="Item"
+                        height="100px"
+                        width="100px"
+                      />
+                      <h3>Analog Quartz Clock</h3>
+                    </div>
+                    <div class="checkout-item-right">
+                      <div class="checkout-item-price">R 49.99</div>
+                      <button>Remove</button>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="checkout-item">
+                    <div class="checkout-item-left">
+                      <img
+                        src="./assets/images/product.png"
+                        alt="Item"
+                        height="100px"
+                        width="100px"
+                      />
+                      <h3>Analog Quartz Clock</h3>
+                    </div>
+                    <div class="checkout-item-right">
+                      <div class="checkout-item-price">R 49.99</div>
+                      <button>Remove</button>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="checkout-item">
+                    <div class="checkout-item-left">
+                      <img
+                        src="./assets/images/product.png"
+                        alt="Item"
+                        height="100px"
+                        width="100px"
+                      />
+                      <h3>Analog Quartz Clock</h3>
+                    </div>
+                    <div class="checkout-item-right">
+                      <div class="checkout-item-price">R 49.99</div>
+                      <button>Remove</button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="checkout-prices-container">
+                <div class="checkout-prices">
+                  <div class="checkout-price">
+                    <p>Sub-total:</p>
+                    <p id="checkout-sub-total">R 149.97</p>
+                  </div>
+                  <div class="checkout-price">
+                    <p>VAT:</p>
+                    <p id="checkout-vat">R 22.50</p>
+                  </div>
+                  <div class="checkout-price checkout-total">
+                    <p>Total:</p>
+                    <p id="checkout-total">R 172.47</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="dark-pink-button">pay</button>
+          </div>
+        </main>
+        <footer>
+          <h2 class="page-footer-logo">
+            <a href="#">
+              <img src="assets/images/Logo-Footer.svg" alt="Logo" />
+            </a>
+          </h2>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
