@@ -228,7 +228,7 @@ ul {
 }
 
 .cart-dropdown-summary {
-  height: calc(100% - 400px);
+  height: 35px;
   font-size: var(--font-size-xs);
   text-transform: uppercase;
   display: flex;
@@ -238,6 +238,15 @@ ul {
 
 .cart-dropdown-summary span {
   font-weight: var(--font-weight-bold);
+}
+
+.clear-cart {
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  height: calc(100% - 435px);
+  width: 100%;
+  background-color: var(--dark-pink-bg);
+  border-radius: 5px;
 }
 
 /* --- MAIN --- */

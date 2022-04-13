@@ -13,8 +13,23 @@ function addToCart(product) {
   }
 }
 
+/**
+ * Remove one instance of a product from the cart.
+ * @param {Object} product The product object to remove.
+ * @throws Note: This function fails silently, an exception
+ * is not throw if the delete operation does not successfully complete.
+ */
 function removeFromCart(product) {
-  //
+  const cart = JSON.parse(window.localStorage.getItem("cart"));
+
+  if (cart !== null) {
+    const index = cart.findIndex((item) => item.id === product.id);
+
+    if (index > -1) {
+      cart.splice(index, 1);
+      window.localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }
 }
 
 /**
