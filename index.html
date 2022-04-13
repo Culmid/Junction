@@ -9,7 +9,7 @@
     <!-- Style Sheet -->
     <link rel="stylesheet" href="assets/styles/styles.css" />
 
-    <!-- Build Script -->
+    <!-- Build Scripts -->
     <script src="./main.js" defer type="module"></script>
 
     <!-- Font - Roboto (300/400/700) -->
@@ -45,10 +45,66 @@
               </nav>
             </div>
             <div class="page-header-right">
-              <button class="page-header-cart">
+              <button class="page-header-cart" id="cart">
                 <img src="assets/images/cart.svg" alt="Cart" />
                 <div class="page-header-cart-count">0</div>
               </button>
+              <div class="cart-dropdown" id="cart-dropdown">
+                <div class="cart-dropdown-items" id="dropdown-list">
+                  <div class="cart-dropdown-item">
+                    <div class="cart-dropdown-top">
+                      <h3 class="cart-dropdown-header">Mac Book Pro</h3>
+                      <div class="cart-dropdown-removals">
+                        <button>
+                          <img
+                            src="./assets/images/minus-solid.svg"
+                            alt="Decrease"
+                            width="15px"
+                            height="15px"
+                          />
+                        </button>
+                        <button>
+                          <img
+                            src="./assets/images/trash-solid.svg"
+                            alt="Remove"
+                            width="15px"
+                            height="15px"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                    <div class="cart-dropdown-details">
+                      <img
+                        src="./assets/images/product.png"
+                        alt="Product"
+                        height="70px"
+                        width="70px"
+                      />
+                      <div class="cart-dropdown-prices">
+                        <p><span>Quantity:</span> 1</p>
+                        <p>x</p>
+                        <p><span>Price:</span> R 19, 529.00</p>
+                        <p>= R 19, 529.00</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-dropdown-summary">
+                  <div
+                    class="cart-dropdown-summary-items"
+                    id="cart-dropdown-count"
+                  >
+                    <span>Items:</span> 24
+                  </div>
+                  <div
+                    class="cart-dropdown-summary-total"
+                    id="cart-dropdown-total"
+                  >
+                    <span>Total:</span> R 60, 000.00
+                  </div>
+                </div>
+                <button class="clear-cart" id="clear-cart">Clear Cart</button>
+              </div>
               <button class="page-header-profile-pic">
                 <img src="assets/images/profile.png" alt="Profile Picture" />
               </button>

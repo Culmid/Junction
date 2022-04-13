@@ -38,7 +38,7 @@ function formatPrice(price) {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       })
-      .replace(",", ", ")
+      .replace(/,/gi, ", ")
   );
 }
 

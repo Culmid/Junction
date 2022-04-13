@@ -1,4 +1,5 @@
 import { displayProduct } from "./displayProduct.js";
+import { handleCartHover } from "./handleCartHover.js";
 import { API_URL } from "./shared.js";
 import { doFetch } from "./utils.js";
 
@@ -10,6 +11,7 @@ async function product() {
   console.log(currentProduct);
 
   displayProduct(currentProduct);
+  handleCartHover();
 }
 
 product();

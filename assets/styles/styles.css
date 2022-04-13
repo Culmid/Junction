@@ -16,6 +16,7 @@
   --image-banner-height: 384px;
   --product-image-size: 500px;
 
+  --font-size-xs: 15px;
   --font-size-small: 22px;
   --font-size-medium: 30px;
   --font-size-large: 40px;
@@ -149,6 +150,7 @@ ul {
 .page-header-right {
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 .page-header-cart {
@@ -167,6 +169,99 @@ ul {
   background-color: var(--grey-bg);
   border-radius: 35px;
   margin-left: 2px;
+}
+
+.cart-dropdown {
+  height: 500px;
+  width: 350px;
+  position: absolute;
+  top: 80px;
+  left: -100px;
+  background: var(--light-pink-bg);
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 20px;
+  display: none;
+}
+
+.cart-dropdown-items {
+  height: 400px;
+  background-color: var(--default-bg-color);
+  border-radius: 5px;
+  overflow-y: auto;
+}
+
+.cart-dropdown-item {
+  height: 100px;
+  background-color: var(--dark-pink-bg);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 4px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-dropdown-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-dropdown-header {
+  width: calc(100% - 42px);
+  font-size: var(--font-size-small);
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cart-dropdown-removals {
+  width: 42px;
+}
+
+.cart-dropdown-removals button {
+  background-color: var(--dark-pink-bg);
+  margin: 0 2px;
+}
+
+.cart-dropdown-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cart-dropdown-prices p {
+  margin: 0;
+  font-size: var(--font-size-xs);
+}
+
+.cart-dropdown-prices span {
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+}
+
+.cart-dropdown-summary {
+  height: 35px;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-dropdown-summary span {
+  font-weight: var(--font-weight-bold);
+}
+
+.clear-cart {
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  height: calc(100% - 435px);
+  width: 100%;
+  background-color: var(--dark-pink-bg);
+  border-radius: 5px;
 }
 
 /* --- MAIN --- */
