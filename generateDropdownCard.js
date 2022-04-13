@@ -1,13 +1,53 @@
+import { displayDropdown } from "./displayDropdown.js";
+import { removeFromCart, removeAllFromCart } from "./shoppingCart.js";
 import { formatPrice } from "./utils.js";
 
 function generateDropdownCard([product, quantity, total]) {
   const cartDropdownItem = document.createElement("div");
   cartDropdownItem.classList.add("cart-dropdown-item");
 
+  const cartDropdownTop = document.createElement("div");
+  cartDropdownTop.classList.add("cart-dropdown-top");
+  cartDropdownItem.appendChild(cartDropdownTop);
+
   const cartDropdownHeader = document.createElement("h3");
   cartDropdownHeader.classList.add("cart-dropdown-header");
   cartDropdownHeader.innerHTML = product.name;
-  cartDropdownItem.appendChild(cartDropdownHeader);
+  cartDropdownTop.appendChild(cartDropdownHeader);
+
+  const cartDropdownRemovals = document.createElement("div");
+  cartDropdownRemovals.classList.add("cart-dropdown-removals");
+  cartDropdownTop.appendChild(cartDropdownRemovals);
+
+  const cartDropdownMinus = document.createElement("button");
+  cartDropdownMinus.addEventListener("click", () => {
+    removeFromCart(product);
+    displayDropdown();
+  });
+  cartDropdownRemovals.appendChild(cartDropdownMinus);
+
+  const minusImage = document.createElement("img");
+  minusImage.src = "./assets/images/minus-solid.svg";
+  minusImage.alt = "Decrease";
+  // Explicit Height/Width
+  minusImage.style.width = "15px";
+  minusImage.style.height = "15px";
+  cartDropdownMinus.appendChild(minusImage);
+
+  const cartDropdownTrash = document.createElement("button");
+  cartDropdownTrash.addEventListener("click", () => {
+    removeAllFromCart(product);
+    displayDropdown();
+  });
+  cartDropdownRemovals.appendChild(cartDropdownTrash);
+
+  const trashImage = document.createElement("img");
+  trashImage.src = "./assets/images/trash-solid.svg";
+  trashImage.alt = "Remove";
+  // Explicit Height/Width
+  trashImage.style.width = "15px";
+  trashImage.style.height = "15px";
+  cartDropdownTrash.appendChild(trashImage);
 
   const cartDropdownDetails = document.createElement("div");
   cartDropdownDetails.classList.add("cart-dropdown-details");

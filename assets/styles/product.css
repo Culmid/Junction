@@ -202,12 +202,27 @@ ul {
   justify-content: space-between;
 }
 
+.cart-dropdown-top {
+  display: flex;
+  justify-content: space-between;
+}
+
 .cart-dropdown-header {
+  width: calc(100% - 42px);
   font-size: var(--font-size-small);
   margin: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.cart-dropdown-removals {
+  width: 42px;
+}
+
+.cart-dropdown-removals button {
+  background-color: var(--dark-pink-bg);
+  margin: 0 2px;
 }
 
 .cart-dropdown-details {

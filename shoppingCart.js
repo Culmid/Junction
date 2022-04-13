@@ -33,6 +33,23 @@ function removeFromCart(product) {
 }
 
 /**
+ * Remove all instances of a given product from the cart.
+ * @param {Object} product Product to remove all instances of.
+ * @throws Note: This function fails silently, an exception
+ * is not throw if the delete operation does not successfully complete.
+ */
+function removeAllFromCart(product) {
+  const cart = JSON.parse(window.localStorage.getItem("cart"));
+
+  if (cart !== null) {
+    window.localStorage.setItem(
+      "cart",
+      JSON.stringify(cart.filter((item) => item.id !== product.id))
+    );
+  }
+}
+
+/**
  * Get the total cost of all the items in the cart.
  * @returns Total cost of Cart.
  */
@@ -86,6 +103,7 @@ function getCartCount() {
 export {
   addToCart,
   removeFromCart,
+  removeAllFromCart,
   getCartTotal,
   clearCart,
   getCartList,
