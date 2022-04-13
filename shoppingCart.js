@@ -50,6 +50,16 @@ function removeAllFromCart(product) {
 }
 
 /**
+ * Remove an item from the cart by index in the cart.
+ * @param {Number} index Index of product to remove.
+ */
+function removeByIndex(index) {
+  const cart = JSON.parse(window.localStorage.getItem("cart"));
+  cart.splice(index, 1);
+  window.localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/**
  * Get the total cost of all the items in the cart.
  * @returns Total cost of Cart.
  */
@@ -59,10 +69,18 @@ function getCartTotal() {
 }
 
 /**
- * Deletes the cart from LocalStorage
+ * Deletes the cart from LocalStorage.
  */
 function clearCart() {
   window.localStorage.removeItem("cart");
+}
+
+/**
+ * Get raw cart array from LocalStorage.
+ * @returns Cart Array.
+ */
+function getCart() {
+  return JSON.parse(window.localStorage.getItem("cart"));
 }
 
 /**
@@ -104,8 +122,10 @@ export {
   addToCart,
   removeFromCart,
   removeAllFromCart,
+  removeByIndex,
   getCartTotal,
   clearCart,
+  getCart,
   getCartList,
   getCartCount,
 };

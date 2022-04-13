@@ -1,3 +1,4 @@
+import { displayCheckout } from "./displayCheckout.js";
 import { displayDropdown } from "./displayDropdown.js";
 import { clearCart } from "./shoppingCart.js";
 
@@ -23,6 +24,11 @@ function handleCartHover() {
   clear.addEventListener("click", () => {
     clearCart();
     displayDropdown();
+
+    // On Checkout Page -> Synchronous Update
+    if (window.location.pathname.includes("checkout.html")) {
+      displayCheckout();
+    }
   });
 }
 
