@@ -50,4 +50,13 @@ function onAddToCart(product) {
   addToCart(product);
 }
 
-export { doFetch, calculateDiscount, formatPrice, onAddToCart };
+/**
+ * Calculate VAT according to currently known percentage.
+ * @param {Number} price Price to calculate VAT on.
+ * @returns Percentage VAT as a value in Rands.
+ */
+function calculateVAT(price) {
+  return 0.15 * price;
+}
+
+export { doFetch, calculateDiscount, formatPrice, onAddToCart, calculateVAT };

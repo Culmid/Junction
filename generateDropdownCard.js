@@ -1,3 +1,4 @@
+import { displayCheckout } from "./displayCheckout.js";
 import { displayDropdown } from "./displayDropdown.js";
 import { removeFromCart, removeAllFromCart } from "./shoppingCart.js";
 import { formatPrice } from "./utils.js";
@@ -23,6 +24,11 @@ function generateDropdownCard([product, quantity, total]) {
   cartDropdownMinus.addEventListener("click", () => {
     removeFromCart(product);
     displayDropdown();
+
+    // On Checkout Page -> Synchronous Update
+    if (window.location.pathname.includes("checkout.html")) {
+      displayCheckout();
+    }
   });
   cartDropdownRemovals.appendChild(cartDropdownMinus);
 
@@ -38,6 +44,11 @@ function generateDropdownCard([product, quantity, total]) {
   cartDropdownTrash.addEventListener("click", () => {
     removeAllFromCart(product);
     displayDropdown();
+
+    // On Checkout Page -> Synchronous Update
+    if (window.location.pathname.includes("checkout.html")) {
+      displayCheckout();
+    }
   });
   cartDropdownRemovals.appendChild(cartDropdownTrash);
 
