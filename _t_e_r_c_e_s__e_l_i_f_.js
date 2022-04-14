@@ -9,7 +9,6 @@ function _r_e_t_s_a_e__g_g_e() {
 
   const _r_e_n_i_a_t_n_o_c_1_ = document.createElement("div");
   _r_e_n_i_a_t_n_o_c_1_.classList.add("_t_r_e_l_a_");
-  _r_e_n_i_a_t_n_o_c_.appendChild(_r_e_n_i_a_t_n_o_c_1_);
   let _k_c_i_l_c__t_n_u_o_c_ = 0;
 
   ["mouseenter", "mouseover"].forEach((x) => {
@@ -32,6 +31,7 @@ function _r_e_t_s_a_e__g_g_e() {
   const _t_n_u_o_c_ = getCartCount();
   _h_c_t_e_f__t_c_a_f_(_t_n_u_o_c_).then((_a_t_a_d_) => {
     _r_a_p_.innerHTML = `${_t_n_u_o_c_}: ${_a_t_a_d_.text}`;
+    _r_e_n_i_a_t_n_o_c_.appendChild(_r_e_n_i_a_t_n_o_c_1_);
     _r_e_n_i_a_t_n_o_c_1_.appendChild(_r_a_p_);
   });
 
