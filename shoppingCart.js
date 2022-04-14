@@ -1,3 +1,5 @@
+import { updateAll } from "./handleUpdate.js";
+
 /**
  * Adds an item to our cart.
  * @param {Object} product Product to add to cart.
@@ -11,6 +13,8 @@ function addToCart(product) {
     cart.push(product);
     window.localStorage.setItem("cart", JSON.stringify(cart));
   }
+
+  updateAll();
 }
 
 /**
@@ -30,6 +34,8 @@ function removeFromCart(product) {
       window.localStorage.setItem("cart", JSON.stringify(cart));
     }
   }
+
+  updateAll();
 }
 
 /**
@@ -47,6 +53,8 @@ function removeAllFromCart(product) {
       JSON.stringify(cart.filter((item) => item.id !== product.id))
     );
   }
+
+  updateAll();
 }
 
 /**
@@ -57,6 +65,8 @@ function removeByIndex(index) {
   const cart = JSON.parse(window.localStorage.getItem("cart"));
   cart.splice(index, 1);
   window.localStorage.setItem("cart", JSON.stringify(cart));
+
+  updateAll();
 }
 
 /**
@@ -73,6 +83,8 @@ function getCartTotal() {
  */
 function clearCart() {
   window.localStorage.removeItem("cart");
+
+  updateAll();
 }
 
 /**

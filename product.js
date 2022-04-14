@@ -1,5 +1,6 @@
 import { displayProduct } from "./displayProduct.js";
 import { handleCartHover } from "./handleCartHover.js";
+import { updateAll } from "./handleUpdate.js";
 import { API_URL } from "./shared.js";
 import { doFetch } from "./utils.js";
 
@@ -12,6 +13,7 @@ async function product() {
 
   displayProduct(currentProduct);
   handleCartHover();
+  updateAll();
 }
 
 product();

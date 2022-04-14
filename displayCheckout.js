@@ -39,6 +39,7 @@ function displayNormally() {
 
   // Clear Cart Button
   const checkoutClear = document.createElement("button");
+  checkoutClear.innerHTML = "Clear Cart";
   checkoutClear.addEventListener("click", () => {
     clearCart();
     displayCheckout();
