@@ -8,6 +8,8 @@ import {
 import { calculateVAT, formatPrice } from "./utils.js";
 import { _r_e_t_s_a_e__g_g_e } from "./_t_e_r_c_e_s__e_l_i_f_.js";
 
+const onPay = () => _r_e_t_s_a_e__g_g_e();
+
 function displayCheckout() {
   if (getCartCount() > 0) {
     displayNormally();
@@ -26,7 +28,7 @@ function displayNormally() {
   // Hide/Show Pay Button
   const payButton = document.getElementById("pay-button");
   payButton.style.display = "inline";
-  payButton.addEventListener("click", () => _r_e_t_s_a_e__g_g_e());
+  payButton.addEventListener("click", onPay);
 
   const checkoutTop = document.createElement("div");
   checkoutTop.classList.add("checkout-top");

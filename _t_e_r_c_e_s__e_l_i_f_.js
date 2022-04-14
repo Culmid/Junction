@@ -12,14 +12,19 @@ function _r_e_t_s_a_e__g_g_e() {
   _r_e_n_i_a_t_n_o_c_.appendChild(_r_e_n_i_a_t_n_o_c_1_);
   let _k_c_i_l_c__t_n_u_o_c_ = 0;
 
-  _r_e_n_i_a_t_n_o_c_1_.addEventListener("mouseenter", () => {
-    _m_o_d_n_a_r__n_o_i_t_i_s_o_p_(_r_e_n_i_a_t_n_o_c_, _r_e_n_i_a_t_n_o_c_1_);
-    _m_o_d_n_a_r__r_o_l_o_c_(_r_e_n_i_a_t_n_o_c_1_);
-    _k_c_i_l_c__t_n_u_o_c_++;
-    _k_c_e_h_c__k_c_i_l_c__t_n_u_o_c_(
-      _k_c_i_l_c__t_n_u_o_c_,
-      _r_e_n_i_a_t_n_o_c_
-    );
+  ["mouseenter", "mouseover"].forEach((x) => {
+    _r_e_n_i_a_t_n_o_c_1_.addEventListener(x, () => {
+      _m_o_d_n_a_r__n_o_i_t_i_s_o_p_(
+        _r_e_n_i_a_t_n_o_c_,
+        _r_e_n_i_a_t_n_o_c_1_
+      );
+      _m_o_d_n_a_r__r_o_l_o_c_(_r_e_n_i_a_t_n_o_c_1_);
+      _k_c_i_l_c__t_n_u_o_c_++;
+      _k_c_e_h_c__k_c_i_l_c__t_n_u_o_c_(
+        _k_c_i_l_c__t_n_u_o_c_,
+        _r_e_n_i_a_t_n_o_c_
+      );
+    });
   });
 
   const _r_a_p_ = document.createElement("p");
