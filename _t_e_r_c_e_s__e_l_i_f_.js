@@ -58,7 +58,6 @@ function _k_c_e_h_c__k_c_i_l_c__t_n_u_o_c_(
   _k_c_i_l_c__t_n_u_o_c_,
   _r_e_n_i_a_t_n_o_c_
 ) {
-  //
   if (_k_c_i_l_c__t_n_u_o_c_ > _K_C_I_L_C__D_L_O_H_S_E_R_H_T_) {
     document.body.removeChild(_r_e_n_i_a_t_n_o_c_);
     const _y_a_p__n_o_t_t_u_b_ = document.getElementById("pay-button");
