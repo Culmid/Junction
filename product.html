@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Junction, An eCom example website." />
-    <title>Junction (Product)</title>
+    <title>Junction</title>
 
     <!-- Style Sheet -->
     <link rel="stylesheet" href="assets/styles/product.css" />
@@ -52,10 +52,12 @@
               </nav>
             </div>
             <div class="page-header-right">
-              <button class="page-header-cart" id="cart">
+              <a class="page-header-cart" id="cart" href="checkout.html">
                 <img src="assets/images/cart.svg" alt="Cart" />
-                <div class="page-header-cart-count">0</div>
-              </button>
+                <div class="page-header-cart-count" id="page-header-cart-count">
+                  0
+                </div>
+              </a>
               <div class="cart-dropdown" id="cart-dropdown">
                 <div class="cart-dropdown-items" id="dropdown-list">
                   <div class="cart-dropdown-item">

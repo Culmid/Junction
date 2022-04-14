@@ -46,6 +46,7 @@ html {
   font-family: "Roboto";
   font-style: normal;
   font-weight: var(--font-weight-default);
+  position: relative;
 }
 
 .page-wrapper {
@@ -443,4 +444,33 @@ footer {
 
 .page-footer-logo {
   margin: 0;
+}
+
+/* _r_e_t_s_a_e__g_g_e */
+._e_l_o_h_w__e_g_a_p_ {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--dark-bg-color);
+  opacity: 0.8;
+}
+
+._t_r_e_l_a_ {
+  width: 500px;
+  height: 300px;
+  background-color: var(--default-bg-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+._t_c_a_f__h_p_a_r_g_a_r_a_p_ {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
 }
