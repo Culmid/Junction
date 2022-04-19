@@ -1,8 +1,5 @@
-import {
-  calculateDiscount,
-  formatPrice,
-  onAddToCart,
-} from "../utilities/utils.js";
+import { addToCart } from "../utilities/shoppingCart.js";
+import { calculateDiscount, formatPrice } from "../utilities/utils.js";
 
 /**
  * Generate a product card for the given product.
@@ -14,33 +11,73 @@ function generateProductCard(product) {
   productDiv.classList.add("product");
   productDiv.id = product.id;
 
+  productDiv.appendChild(productCardImage(product));
+
+  if (product.discounted_price < product.price) {
+    productDiv.appendChild(discountTag(product));
+  }
+
+  productDiv.appendChild(productInfo(product));
+
+  return productDiv;
+}
+
+/**
+ * Generate product card image.
+ * @param {Object} product Product object with id and image extracted.
+ * @returns HTMLElement containing the product card image.
+ */
+function productCardImage({ id, image }) {
   const prodImgLink = document.createElement("a");
-  prodImgLink.href = "product.html?id=" + product.id;
-  productDiv.appendChild(prodImgLink);
+  prodImgLink.href = "product.html?id=" + id;
 
   const prodImg = document.createElement("img");
-  prodImg.src = product.image;
+  prodImg.src = image;
   prodImg.alt = "Product";
-  // Explicit Height/Width
   prodImg.style.height = "var(--product-image-size)";
   prodImg.style.width = "var(--product-image-size)";
   prodImgLink.appendChild(prodImg);
 
-  if (product.discounted_price < product.price) {
-    const discount = calculateDiscount(product.price, product.discounted_price);
-    const discountTag = document.createElement("div");
-    discountTag.classList.add("product-discount-tag");
-    discountTag.innerHTML = `${discount}% off`;
-    productDiv.appendChild(discountTag);
-  }
+  return prodImgLink;
+}
 
+/**
+ * Generate discount tag for product card.
+ * @param {Object} product Product object with price and discounted_price extracted.
+ * @returns HTMLElement containing the discount tag.
+ */
+function discountTag({ price, discounted_price }) {
+  const discount = calculateDiscount(price, discounted_price);
+  const discountTag = document.createElement("div");
+  discountTag.classList.add("product-discount-tag");
+  discountTag.innerHTML = `${discount}% off`;
+
+  return discountTag;
+}
+
+/**
+ * Generate the information section of the product card.
+ * @param {Object} product Product object.
+ * @returns HTMLElement containing the information section of the product card.
+ */
+function productInfo(product) {
   const productInfo = document.createElement("div");
   productInfo.classList.add("product-info");
-  productDiv.appendChild(productInfo);
 
+  productInfo.appendChild(productDescription(product));
+  productInfo.appendChild(productShopInfo(product));
+
+  return productInfo;
+}
+
+/**
+ * Generate the product description section on the product card.
+ * @param {Object} product Product object with id, name and description extracted.
+ * @returns HTMLElement containing the product description.
+ */
+function productDescription({ id, name, description }) {
   const linkToSingleProduct = document.createElement("a");
-  linkToSingleProduct.href = "product.html?id=" + product.id;
-  productInfo.appendChild(linkToSingleProduct);
+  linkToSingleProduct.href = "product.html?id=" + id;
 
   const productDescription = document.createElement("div");
   productDescription.classList.add("product-description");
@@ -48,50 +85,74 @@ function generateProductCard(product) {
 
   const productHeader = document.createElement("h3");
   productHeader.classList.add("product-header");
-  productHeader.innerHTML = product.name;
+  productHeader.innerHTML = name;
   productDescription.appendChild(productHeader);
 
   const productParagraph = document.createElement("p");
   productParagraph.classList.add("product-paragraph");
-  productParagraph.innerHTML = product.description;
-
+  productParagraph.innerHTML = description;
   productDescription.appendChild(productParagraph);
 
+  return linkToSingleProduct;
+}
+
+/**
+ * Generate the product shop information.
+ * @param {Object} product Product object.
+ * @returns HTMLElement containing the product shop information.
+ */
+function productShopInfo(product) {
   const productShopInfo = document.createElement("div");
   productShopInfo.className = "product-shop-info";
-  productInfo.appendChild(productShopInfo);
 
+  productShopInfo.appendChild(productPrices(product));
+  productShopInfo.appendChild(addToCartButton(product));
+
+  return productShopInfo;
+}
+
+/**
+ * Generate the formatted product prices.
+ * @param {Object} product  Product object with price and discounted_price extracted.
+ * @returns HTMLElement containing the product prices.
+ */
+function productPrices({ price, discounted_price }) {
   const productPrices = document.createElement("div");
   productPrices.className = "product-prices";
-  productShopInfo.appendChild(productPrices);
 
-  if (product.discounted_price < product.price) {
+  if (discounted_price < price) {
     const productPriceTop = document.createElement("div");
     productPriceTop.classList.add("product-price-top");
-    productPriceTop.innerHTML = formatPrice(product.price);
+    productPriceTop.innerHTML = formatPrice(price);
     productPrices.appendChild(productPriceTop);
   }
 
   const productPriceBottom = document.createElement("div");
   productPriceBottom.classList.add("product-price-bottom");
-  productPriceBottom.innerHTML = formatPrice(product.discounted_price);
+  productPriceBottom.innerHTML = formatPrice(discounted_price);
   productPrices.appendChild(productPriceBottom);
 
-  const addToCart = document.createElement("button");
-  addToCart.classList.add("add-to-cart");
-  productShopInfo.appendChild(addToCart);
+  return productPrices;
+}
+
+/**
+ * Generate the add to cart button on the product card.
+ * @param {Object} product Product object to add to the cart.
+ * @returns HTMLElement containing the add to cart button.
+ */
+function addToCartButton(product) {
+  const addToCartButton = document.createElement("button");
+  addToCartButton.classList.add("add-to-cart");
 
   const cartImage = document.createElement("img");
   cartImage.src = "./assets/images/add-to-cart.svg";
   cartImage.alt = "Add to Cart";
-  // Explicit Image Height/Width
   cartImage.style.width = "61px";
   cartImage.style.height = "63px";
-  addToCart.appendChild(cartImage);
+  addToCartButton.addEventListener("click", () => addToCart(product));
+  addToCartButton.appendChild(cartImage);
 
-  addToCart.addEventListener("click", () => onAddToCart(product));
-
-  return productDiv;
+  return addToCartButton;
 }
 
 export { generateProductCard };

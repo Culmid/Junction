@@ -12,10 +12,8 @@ let max_products = 0;
 function displayProducts(products) {
   const displayContainer = document.getElementById("display-container");
 
-  // Clear Container
   displayContainer.innerHTML = "";
 
-  // Content
   displayContainer.appendChild(productListHeader());
   displayContainer.appendChild(productList(products));
   displayContainer.appendChild(showMoreButton(products));
