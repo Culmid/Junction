@@ -15,34 +15,45 @@ function displayProducts(products) {
   // Clear Container
   displayContainer.innerHTML = "";
 
-  // Header
+  // Content
+  displayContainer.appendChild(productListHeader());
+  displayContainer.appendChild(productList(products));
+  displayContainer.appendChild(showMoreButton(products));
+}
+
+function productListHeader() {
   const productListHeader = document.createElement("h2");
+
   productListHeader.classList.add("product-list-header");
   productListHeader.innerHTML = "products";
-  displayContainer.appendChild(productListHeader);
 
-  // Product List
+  return productListHeader;
+}
+
+function productList(products) {
   const productList = document.createElement("ul");
   productList.classList.add("product-list");
-  displayContainer.appendChild(productList);
 
   products.slice(max_products, (max_products += 3)).forEach((product) => {
-    console.log(product);
     const listItem = document.createElement("li");
     listItem.appendChild(generateProductCard(product));
     productList.appendChild(listItem);
   });
 
-  // Show More Button
+  return productList;
+}
+
+function showMoreButton(products) {
   const showMore = document.createElement("button");
   showMore.classList.add("show-more");
   showMore.innerHTML = "show more";
-  displayContainer.appendChild(showMore);
 
   showMore.addEventListener("click", () => {
     const productSlice = products.slice(max_products, (max_products += 3));
 
     if (productSlice.length > 0) {
+      const productList = document.getElementsByClassName("product-list")[0];
+
       productSlice.forEach((product) => {
         const listItem = document.createElement("li");
         listItem.appendChild(generateProductCard(product));
@@ -54,6 +65,8 @@ function displayProducts(products) {
       showMore.disabled = true;
     }
   });
+
+  return showMore;
 }
 
 export { displayProducts };
