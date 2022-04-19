@@ -1,4 +1,4 @@
-import { formatPrice, onAddToCart } from "./utils.js";
+import { formatPrice, onAddToCart } from "../utilities/utils.js";
 
 /**
  * Generate single product card for product.html.

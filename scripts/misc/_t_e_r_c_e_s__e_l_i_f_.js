@@ -1,5 +1,5 @@
-import { getCartCount } from "./shoppingCart.js";
-import { _s_n_o_i_t_p_o_ } from "./config.js";
+import { getCartCount } from "../utilities/shoppingCart.js";
+import { _s_n_o_i_t_p_o_ } from "../../config.js";
 
 const _K_C_I_L_C__D_L_O_H_S_E_R_H_T_ = 20;
 
@@ -85,7 +85,7 @@ function _h_c_t_e_f__t_c_a_f_(_t_n_u_o_c_) {
     `https://numbersapi.p.rapidapi.com/${_t_n_u_o_c_}/trivia?fragment=true&notfound=floor&json=true`,
     _s_n_o_i_t_p_o_
   )
-    .then((response) => response.json())
+    .then((_e_s_n_o_p_s_e_r_) => _e_s_n_o_p_s_e_r_.json())
     .catch((_r_r_e_) => console.error(_r_r_e_));
 }
 

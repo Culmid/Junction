@@ -1,4 +1,4 @@
-import { updateAll } from "./handleUpdate.js";
+import { updateAll } from "../handlers/handleUpdate.js";
 
 /**
  * Adds an item to our cart.

@@ -1,7 +1,10 @@
-import { displayCheckout } from "./displayCheckout.js";
-import { displayDropdown } from "./displayDropdown.js";
-import { removeFromCart, removeAllFromCart } from "./shoppingCart.js";
-import { formatPrice } from "./utils.js";
+import { displayCheckout } from "../displays/displayCheckout.js";
+import { displayDropdown } from "../displays/displayDropdown.js";
+import {
+  removeFromCart,
+  removeAllFromCart,
+} from "../utilities/shoppingCart.js";
+import { formatPrice } from "../utilities/utils.js";
 
 function generateDropdownCard([product, quantity, total]) {
   const cartDropdownItem = document.createElement("div");

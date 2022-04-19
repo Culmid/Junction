@@ -1,4 +1,8 @@
-import { calculateDiscount, formatPrice, onAddToCart } from "./utils.js";
+import {
+  calculateDiscount,
+  formatPrice,
+  onAddToCart,
+} from "../utilities/utils.js";
 
 /**
  * Generate a product card for the given product.

@@ -1,6 +1,6 @@
-import { displayCheckout } from "./displayCheckout.js";
-import { displayDropdown } from "./displayDropdown.js";
-import { clearCart } from "./shoppingCart.js";
+import { displayCheckout } from "../displays/displayCheckout.js";
+import { displayDropdown } from "../displays/displayDropdown.js";
+import { clearCart } from "../utilities/shoppingCart.js";
 
 function handleCartHover() {
   const dropdown = document.getElementById("cart-dropdown");

@@ -1,12 +1,12 @@
-import { generateCheckoutCard } from "./generateCheckoutCard.js";
+import { generateCheckoutCard } from "../generators/generateCheckoutCard.js";
 import {
   clearCart,
   getCartCount,
   getCart,
   getCartTotal,
-} from "./shoppingCart.js";
-import { calculateVAT, formatPrice } from "./utils.js";
-import { _r_e_t_s_a_e__g_g_e } from "./_t_e_r_c_e_s__e_l_i_f_.js";
+} from "../utilities/shoppingCart.js";
+import { calculateVAT, formatPrice } from "../utilities/utils.js";
+import { _r_e_t_s_a_e__g_g_e } from "../misc/_t_e_r_c_e_s__e_l_i_f_.js";
 
 const onPay = () => _r_e_t_s_a_e__g_g_e();
 

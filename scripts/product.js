@@ -1,8 +1,8 @@
-import { displayProduct } from "./displayProduct.js";
-import { handleCartHover } from "./handleCartHover.js";
-import { updateAll } from "./handleUpdate.js";
-import { API_URL } from "./shared.js";
-import { doFetch } from "./utils.js";
+import { displayProduct } from "./displays/displayProduct.js";
+import { handleCartHover } from "./handlers/handleCartHover.js";
+import { updateAll } from "./handlers/handleUpdate.js";
+import { API_URL } from "./utilities/shared.js";
+import { doFetch } from "./utilities/utils.js";
 
 async function product() {
   const params = new URLSearchParams(window.location.search);

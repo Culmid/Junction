@@ -1,4 +1,4 @@
-import { generateProductCard } from "./generateProductCard.js";
+import { generateProductCard } from "../generators/generateProductCard.js";
 
 /**
  * Maximum Product displayed at any given time

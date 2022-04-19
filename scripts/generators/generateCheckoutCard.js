@@ -1,6 +1,6 @@
-import { displayCheckout } from "./displayCheckout.js";
-import { removeByIndex } from "./shoppingCart.js";
-import { formatPrice } from "./utils.js";
+import { displayCheckout } from "../displays/displayCheckout.js";
+import { removeByIndex } from "../utilities/shoppingCart.js";
+import { formatPrice } from "../utilities/utils.js";
 
 function generateCheckoutCard(product, index) {
   const checkoutItem = document.createElement("div");

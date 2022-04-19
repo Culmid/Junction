@@ -1,6 +1,10 @@
-import { generateDropdownCard } from "./generateDropdownCard.js";
-import { getCartCount, getCartList, getCartTotal } from "./shoppingCart.js";
-import { formatPrice } from "./utils.js";
+import { generateDropdownCard } from "../generators/generateDropdownCard.js";
+import {
+  getCartCount,
+  getCartList,
+  getCartTotal,
+} from "../utilities/shoppingCart.js";
+import { formatPrice } from "../utilities/utils.js";
 
 function displayDropdown() {
   const dropdownList = document.getElementById("dropdown-list");

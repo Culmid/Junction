@@ -1,4 +1,4 @@
-import { generateSingleProductCard } from "./generateSingleProductCard.js";
+import { generateSingleProductCard } from "../generators/generateSingleProductCard.js";
 
 /**
  * Display single product on product.html.

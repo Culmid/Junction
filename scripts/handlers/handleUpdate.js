@@ -1,4 +1,4 @@
-import { getCartCount } from "./shoppingCart.js";
+import { getCartCount } from "../utilities/shoppingCart.js";
 
 /**
  * Update all Dynamic Values -> Dropdown, Checkout, Count
