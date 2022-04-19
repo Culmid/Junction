@@ -9,7 +9,6 @@ async function product() {
   const id = params.get("id");
 
   const currentProduct = await doFetch(API_URL + "product/" + id);
-  console.log(currentProduct);
 
   displayProduct(currentProduct);
   handleCartHover();

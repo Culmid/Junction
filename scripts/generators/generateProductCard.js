@@ -149,8 +149,9 @@ function addToCartButton(product) {
   cartImage.alt = "Add to Cart";
   cartImage.style.width = "61px";
   cartImage.style.height = "63px";
-  addToCartButton.addEventListener("click", () => addToCart(product));
   addToCartButton.appendChild(cartImage);
+
+  addToCartButton.addEventListener("click", () => addToCart(product));
 
   return addToCartButton;
 }
