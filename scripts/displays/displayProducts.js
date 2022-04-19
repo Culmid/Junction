@@ -21,6 +21,10 @@ function displayProducts(products) {
   displayContainer.appendChild(showMoreButton(products));
 }
 
+/**
+ * Generate the product list header.
+ * @returns HTMLElement containing product list header.
+ */
 function productListHeader() {
   const productListHeader = document.createElement("h2");
 
@@ -29,7 +33,11 @@ function productListHeader() {
 
   return productListHeader;
 }
-
+/**
+ * Generate content for product list.
+ * @param {Array} products Array of product objects.
+ * @returns HTMLElement containing the product list.
+ */
 function productList(products) {
   const productList = document.createElement("ul");
   productList.classList.add("product-list");
@@ -43,6 +51,11 @@ function productList(products) {
   return productList;
 }
 
+/**
+ * Generate the show more button.
+ * @param {Array} products Array of product objects.
+ * @returns HTMLElement containing the show more button.
+ */
 function showMoreButton(products) {
   const showMore = document.createElement("button");
   showMore.classList.add("show-more");
