@@ -6,6 +6,9 @@ import {
 } from "../utilities/shoppingCart.js";
 import { formatPrice } from "../utilities/utils.js";
 
+/**
+ * Display cart dropdown on hover.
+ */
 function displayDropdown() {
   const dropdownList = document.getElementById("dropdown-list");
 

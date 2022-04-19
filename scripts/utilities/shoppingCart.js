@@ -74,7 +74,6 @@ function removeByIndex(index) {
  * @returns Total cost of Cart.
  */
 function getCartTotal() {
-  console.log(getCartList().reduce((prev, item) => prev + item[2], 0));
   return getCartList().reduce((prev, item) => prev + item[2], 0);
 }
 
