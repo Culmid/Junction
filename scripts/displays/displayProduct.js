@@ -1,4 +1,4 @@
-import { generateSingleProductCard } from "./generateSingleProductCard.js";
+import { generateSingleProductCard } from "../generators/generateSingleProductCard.js";
 
 /**
  * Display single product on product.html.
@@ -7,10 +7,8 @@ import { generateSingleProductCard } from "./generateSingleProductCard.js";
 function displayProduct(product) {
   const displayContainer = document.getElementById("display-container");
 
-  // Clear Container
   displayContainer.innerHTML = "";
 
-  // Add Product Info
   displayContainer.appendChild(generateSingleProductCard(product));
 }
 

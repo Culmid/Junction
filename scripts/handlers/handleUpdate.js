@@ -1,18 +1,19 @@
-import { getCartCount } from "./shoppingCart.js";
+import { getCartCount } from "../utilities/shoppingCart.js";
 
 /**
- * Update all Dynamic Values -> Dropdown, Checkout, Count
+ * Initialize shopping cart counter
  */
-function updateAll() {
-  // Might be duplicated
+function countInit() {
   window.addEventListener("storage", () => updateCount());
-
   updateCount();
 }
 
+/**
+ * Update the shopping cart counter
+ */
 function updateCount() {
   const cartCount = document.getElementById("page-header-cart-count");
   cartCount.innerHTML = getCartCount();
 }
 
-export { updateAll };
+export { updateCount, countInit };

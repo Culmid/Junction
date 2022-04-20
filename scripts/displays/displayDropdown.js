@@ -1,18 +1,23 @@
-import { generateDropdownCard } from "./generateDropdownCard.js";
-import { getCartCount, getCartList, getCartTotal } from "./shoppingCart.js";
-import { formatPrice } from "./utils.js";
+import { generateDropdownCard } from "../generators/generateDropdownCard.js";
+import {
+  getCartCount,
+  getCartList,
+  getCartTotal,
+} from "../utilities/shoppingCart.js";
+import { formatPrice } from "../utilities/utils.js";
 
+/**
+ * Display cart dropdown on hover.
+ */
 function displayDropdown() {
   const dropdownList = document.getElementById("dropdown-list");
 
-  // Clear Dropdown
   dropdownList.innerHTML = "";
 
   const cartList = getCartList();
   cartList.forEach((item) =>
     dropdownList.appendChild(generateDropdownCard(item))
   );
-  console.log(cartList);
 
   const cartDropdownCount = document.getElementById("cart-dropdown-count");
   cartDropdownCount.lastChild.textContent = " " + getCartCount();
