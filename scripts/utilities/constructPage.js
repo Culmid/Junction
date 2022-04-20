@@ -1,6 +1,6 @@
 import { footer } from "../components/footer.js";
 import { header } from "../components/header.js";
-import { mainBase } from "../components/main.js";
+import { mainBase } from "../components/mainBase.js";
 
 function constructPage() {
   const pageWrapper = document.createElement("div");
