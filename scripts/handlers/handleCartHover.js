@@ -4,15 +4,24 @@ import { clearCart } from "../utilities/shoppingCart.js";
 
 const dropdown = document.getElementById("cart-dropdown");
 
+/**
+ * mouseenter callback function
+ */
 const enterFunc = () => {
   displayDropdown();
   dropdown.style.display = "inline";
 };
 
+/**
+ * mouseleave callback function
+ */
 const leaveFunc = () => {
   dropdown.style.display = "none";
 };
 
+/**
+ * Setup event listeners for the hover over shopping cart icon
+ */
 function handleCartHover() {
   dropdown.addEventListener("mouseenter", enterFunc);
   dropdown.addEventListener("mouseleave", leaveFunc);

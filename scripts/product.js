@@ -4,6 +4,9 @@ import { countInit } from "./handlers/handleUpdate.js";
 import { API_URL } from "./utilities/shared.js";
 import { doFetch } from "./utilities/utils.js";
 
+/**
+ * Run necessary functions to display the product page
+ */
 async function product() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
