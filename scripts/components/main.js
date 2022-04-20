@@ -14,6 +14,12 @@ function mainBase() {
   const main = document.createElement("main");
 
   main.appendChild(imageBanner());
+
+  const mainContent = document.createElement("div");
+  mainContent.className = "main-content-container";
+  mainContent.id = "display-container";
+  main.appendChild(mainContent);
+
   return main;
 }
 
@@ -248,4 +254,4 @@ function singleProduct({
   return mainContent;
 }
 
-export { mainHome, mainProduct };
+export { mainHome, mainProduct, mainBase };
