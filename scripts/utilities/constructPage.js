@@ -2,6 +2,9 @@ import { footer } from "../components/footer.js";
 import { header } from "../components/header.js";
 import { mainBase } from "../components/mainBase.js";
 
+/**
+ * Construct general page template
+ */
 function constructPage() {
   const pageWrapper = document.createElement("div");
   pageWrapper.className = "page-wrapper";

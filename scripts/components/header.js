@@ -1,5 +1,9 @@
 import { formatPrice } from "../utilities/utils.js";
 
+/**
+ * Generate the general header element.
+ * @returns HTMLElement containing the header element.
+ */
 function header() {
   const header = document.createElement("header");
 
@@ -9,6 +13,10 @@ function header() {
   return header;
 }
 
+/**
+ * Generate the discount banner for the header.
+ * @returns HTMLElement containing the discount banner.
+ */
 function discountBanner() {
   const discountBanner = document.createElement("div");
 
@@ -18,6 +26,10 @@ function discountBanner() {
   return discountBanner;
 }
 
+/**
+ * Generate the general page header element for the header.
+ * @returns HTMLElement containing the page header element.
+ */
 function pageHeader() {
   const pageHeader = document.createElement("div");
   pageHeader.className = "page-header";
@@ -40,6 +52,10 @@ function pageHeader() {
   return pageHeader;
 }
 
+/**
+ * Generate the page header logo.
+ * @returns HTMLElement containing the logo.
+ */
 function pageHeaderLogo() {
   const pageHeaderLogo = document.createElement("h1");
   pageHeaderLogo.className = "page-header-logo";
@@ -59,6 +75,10 @@ function pageHeaderLogo() {
   return pageHeaderLogo;
 }
 
+/**
+ * Generate the navbar element for the page header.
+ * @returns HTMLElement containing the navbar element.
+ */
 function navbar() {
   const navLinks = [
     ["what's new", "#"],
@@ -84,6 +104,10 @@ function navbar() {
   return nav;
 }
 
+/**
+ * Generate the cart 'button' for the page header.
+ * @returns HTMLElement containing the cart 'button'.
+ */
 function pageHeaderCart() {
   const link = document.createElement("a");
   link.className = "page-header-cart";
@@ -107,6 +131,10 @@ function pageHeaderCart() {
   return link;
 }
 
+/**
+ * Generate the profile picture element for the page header.
+ * @returns HTMLElement containing the profile picture element.
+ */
 function pageHeaderProfilePic() {
   const button = document.createElement("button");
   button.className = "page-header-profile-pic";
@@ -122,6 +150,10 @@ function pageHeaderProfilePic() {
   return button;
 }
 
+/**
+ * Generate the cart dropdown element for the cart icon on the page header.
+ * @returns HTMLElement containing the cart dropdown element.
+ */
 function cartDropdown() {
   const cartDropdown = document.createElement("div");
   cartDropdown.className = "cart-dropdown";

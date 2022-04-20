@@ -1,3 +1,7 @@
+/**
+ * Generate general page footer element.
+ * @returns HTMLElement containing page footer.
+ */
 function footer() {
   const footer = document.createElement("footer");
 
@@ -12,7 +16,6 @@ function footer() {
   const logoImg = document.createElement("img");
   logoImg.src = "./assets/images/logo-footer.svg";
   logoImg.alt = "Logo";
-  // Explicit Height/Width
   logoImg.style.width = "157px";
   logoImg.style.height = "33px";
   link.appendChild(logoImg);

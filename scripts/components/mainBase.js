@@ -1,3 +1,7 @@
+/**
+ * Generate the general main element.
+ * @returns HTMLElement containing main element.
+ */
 function mainBase() {
   const main = document.createElement("main");
 
@@ -11,6 +15,10 @@ function mainBase() {
   return main;
 }
 
+/**
+ * Generate the image banner for the main element.
+ * @returns HTMLElement containing the image banner.
+ */
 function imageBanner() {
   const imageBanner = document.createElement("div");
   imageBanner.className = "image-banner";
