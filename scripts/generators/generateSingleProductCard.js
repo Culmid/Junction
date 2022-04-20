@@ -1,3 +1,4 @@
+import { addToCart } from "../utilities/shoppingCart.js";
 import { formatPrice } from "../utilities/utils.js";
 
 /**
@@ -120,12 +121,12 @@ function singleProductPrices({ price, discounted_price }) {
  * @returns HTMLElement containing the add to cart button.
  */
 function addToCartButton(product) {
-  const addToCart = document.createElement("button");
-  addToCart.classList.add("dark-pink-button");
-  addToCart.innerHTML = "add to cart";
-  addToCart.addEventListener("click", () => addToCart(product));
+  const addToCartButton = document.createElement("button");
+  addToCartButton.classList.add("dark-pink-button");
+  addToCartButton.innerHTML = "add to cart";
+  addToCartButton.addEventListener("click", () => addToCart(product));
 
-  return addToCart;
+  return addToCartButton;
 }
 
 export { generateSingleProductCard };
