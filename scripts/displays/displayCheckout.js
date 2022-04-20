@@ -14,29 +14,30 @@ const onPay = () => _r_e_t_s_a_e__g_g_e();
  * Display checkout container
  */
 function displayCheckout() {
+  const displayContainer = document.getElementById("display-container");
+  displayContainer.innerHTML = "";
+
   if (getCartCount() > 0) {
-    displayNormally();
+    displayContainer.appendChild(normalCheckoutContainer());
+    displayContainer.appendChild(payButton());
   } else {
-    displayEmptyPage();
+    displayContainer.appendChild(emptyCheckoutContainer());
   }
 }
 
 /**
- * Display checkout container normally (when items are in cart)
+ * Generate checkout container normally (when items are in cart)
+ * @returns HTMLElement containing the normal checkout container.
  */
-function displayNormally() {
-  const checkoutContainer = document.getElementById("checkout-container");
-  checkoutContainer.classList.remove("checkout-container-empty");
+function normalCheckoutContainer(displayContainer) {
+  const checkoutContainer = document.createElement("div");
   checkoutContainer.classList.add("checkout-container");
-  checkoutContainer.innerHTML = "";
-
-  const payButton = document.getElementById("pay-button");
-  payButton.style.display = "inline";
-  payButton.addEventListener("click", onPay);
 
   checkoutContainer.appendChild(checkoutTop());
   checkoutContainer.appendChild(checkoutItemsList());
   checkoutContainer.appendChild(checkoutPrices());
+
+  return checkoutContainer;
 }
 
 /**
@@ -150,16 +151,29 @@ function checkoutPrice(text, value, extraClass) {
 }
 
 /**
- * Display empty checkout page (no items in cart)
+ * Generate the pay button on the checkout page.
+ * @returns HTMLElement containing the pay button.
  */
-function displayEmptyPage() {
-  const checkoutContainer = document.getElementById("checkout-container");
-  checkoutContainer.classList.remove("checkout-container");
+function payButton() {
+  const payButton = document.createElement("button");
+  payButton.classList.add("dark-pink-button");
+  payButton.id = "pay-button";
+  payButton.innerHTML = "pay";
+  payButton.addEventListener("click", onPay);
+
+  return payButton;
+}
+
+/**
+ * Generate empty checkout page (no items in cart)
+ * @returns HTMLElement containing the empty checkout container.
+ */
+function emptyCheckoutContainer() {
+  const checkoutContainer = document.createElement("div");
   checkoutContainer.classList.add("checkout-container-empty");
   checkoutContainer.innerHTML = "Your cart is empty";
 
-  const payButton = document.getElementById("pay-button");
-  payButton.style.display = "none";
+  return checkoutContainer;
 }
 
 export { displayCheckout };
