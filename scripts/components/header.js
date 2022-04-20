@@ -20,7 +20,7 @@ function header() {
 function discountBanner() {
   const discountBanner = document.createElement("div");
 
-  discountBanner.className = "discount-banner";
+  discountBanner.classList.add("discount-banner");
   discountBanner.innerHTML = "free shipping on orders over R 600";
 
   return discountBanner;
@@ -32,17 +32,17 @@ function discountBanner() {
  */
 function pageHeader() {
   const pageHeader = document.createElement("div");
-  pageHeader.className = "page-header";
+  pageHeader.classList.add("page-header");
 
   const pageHeaderLeft = document.createElement("div");
-  pageHeaderLeft.className = "page-header-left";
+  pageHeaderLeft.classList.add("page-header-left");
   pageHeader.appendChild(pageHeaderLeft);
 
   pageHeaderLeft.appendChild(pageHeaderLogo());
   pageHeaderLeft.appendChild(navbar());
 
   const pageHeaderRight = document.createElement("div");
-  pageHeaderRight.className = "page-header-right";
+  pageHeaderRight.classList.add("page-header-right");
   pageHeader.appendChild(pageHeaderRight);
 
   pageHeaderRight.appendChild(pageHeaderCart());
@@ -58,7 +58,7 @@ function pageHeader() {
  */
 function pageHeaderLogo() {
   const pageHeaderLogo = document.createElement("h1");
-  pageHeaderLogo.className = "page-header-logo";
+  pageHeaderLogo.classList.add("page-header-logo");
 
   const pageHeaderLogoLink = document.createElement("a");
   pageHeaderLogoLink.href = "/";
@@ -67,7 +67,6 @@ function pageHeaderLogo() {
   const logoImage = document.createElement("img");
   logoImage.src = "./assets/images/logo.svg";
   logoImage.alt = "Logo";
-  // Explicit Image Height/Width
   logoImage.style.width = "215px";
   logoImage.style.height = "46px";
   pageHeaderLogoLink.appendChild(logoImage);
@@ -110,20 +109,19 @@ function navbar() {
  */
 function pageHeaderCart() {
   const link = document.createElement("a");
-  link.className = "page-header-cart";
+  link.classList.add("page-header-cart");
   link.id = "cart";
   link.href = "checkout.html";
 
   const cartImg = document.createElement("img");
   cartImg.src = "./assets/images/cart.svg";
   cartImg.alt = "Cart";
-  // Explicit Height/Width
   cartImg.style.width = "39px";
   cartImg.style.height = "39px";
   link.appendChild(cartImg);
 
   const cartCount = document.createElement("div");
-  cartCount.className = "page-header-cart-count";
+  cartCount.classList.add("page-header-cart-count");
   cartCount.id = "page-header-cart-count";
   cartCount.innerHTML = "0";
   link.appendChild(cartCount);
@@ -137,12 +135,11 @@ function pageHeaderCart() {
  */
 function pageHeaderProfilePic() {
   const button = document.createElement("button");
-  button.className = "page-header-profile-pic";
+  button.classList.add("page-header-profile-pic");
 
   const profilePic = document.createElement("img");
   profilePic.src = "./assets/images/profile.png";
   profilePic.alt = "Profile Picture";
-  // Explicit Image Height/Width
   profilePic.style.width = "74px";
   profilePic.style.height = "74px";
   button.appendChild(profilePic);
@@ -156,20 +153,20 @@ function pageHeaderProfilePic() {
  */
 function cartDropdown() {
   const cartDropdown = document.createElement("div");
-  cartDropdown.className = "cart-dropdown";
+  cartDropdown.classList.add("cart-dropdown");
   cartDropdown.id = "cart-dropdown";
 
   const cartDropdownItems = document.createElement("div");
-  cartDropdownItems.className = "cart-dropdown-items";
+  cartDropdownItems.classList.add("cart-dropdown-items");
   cartDropdownItems.id = "dropdown-list";
   cartDropdown.appendChild(cartDropdownItems);
 
   const cartDropdownSummary = document.createElement("div");
-  cartDropdownSummary.className = "cart-dropdown-summary";
+  cartDropdownSummary.classList.add("cart-dropdown-summary");
   cartDropdown.appendChild(cartDropdownSummary);
 
   const summaryItems = document.createElement("div");
-  summaryItems.className = "cart-dropdown-summary-items";
+  summaryItems.classList.add("cart-dropdown-summary-items");
   summaryItems.id = "cart-dropdown-count";
   const itemSpan = document.createElement("span");
   itemSpan.innerHTML = "Items:";
@@ -178,7 +175,7 @@ function cartDropdown() {
   cartDropdownSummary.appendChild(summaryItems);
 
   const summaryTotal = document.createElement("div");
-  summaryTotal.className = "cart-dropdown-summary-total";
+  summaryTotal.classList.add("cart-dropdown-summary-total");
   summaryTotal.id = "cart-dropdown-total";
   const totalSpan = document.createElement("span");
   totalSpan.innerHTML = "Total:";
@@ -187,7 +184,7 @@ function cartDropdown() {
   cartDropdownSummary.appendChild(summaryTotal);
 
   const clearCart = document.createElement("button");
-  clearCart.className = "clear-cart";
+  clearCart.classList.add("clear-cart");
   clearCart.id = "clear-cart";
   clearCart.innerHTML = "Clear Cart";
   cartDropdown.appendChild(clearCart);

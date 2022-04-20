@@ -6,7 +6,7 @@ function footer() {
   const footer = document.createElement("footer");
 
   const pageFooterLogo = document.createElement("h2");
-  pageFooterLogo.className = "page-footer-logo";
+  pageFooterLogo.classList.add("page-footer-logo");
   footer.appendChild(pageFooterLogo);
 
   const link = document.createElement("a");

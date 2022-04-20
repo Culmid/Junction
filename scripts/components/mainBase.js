@@ -8,7 +8,7 @@ function mainBase() {
   main.appendChild(imageBanner());
 
   const mainContent = document.createElement("div");
-  mainContent.className = "main-content-container";
+  mainContent.classList.add("main-content-container");
   mainContent.id = "display-container";
   main.appendChild(mainContent);
 
@@ -21,10 +21,10 @@ function mainBase() {
  */
 function imageBanner() {
   const imageBanner = document.createElement("div");
-  imageBanner.className = "image-banner";
+  imageBanner.classList.add("image-banner");
 
   const imageBannerMessage = document.createElement("div");
-  imageBannerMessage.className = "image-banner-message";
+  imageBannerMessage.classList.add("image-banner-message");
   imageBannerMessage.innerHTML = "30% off all Winter stock";
   imageBanner.appendChild(imageBannerMessage);
 

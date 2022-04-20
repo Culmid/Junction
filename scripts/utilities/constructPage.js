@@ -7,10 +7,10 @@ import { mainBase } from "../components/mainBase.js";
  */
 function constructPage() {
   const pageWrapper = document.createElement("div");
-  pageWrapper.className = "page-wrapper";
+  pageWrapper.classList.add("page-wrapper");
 
   const pageContentContainer = document.createElement("div");
-  pageContentContainer.className = "page-content-container";
+  pageContentContainer.classList.add("page-content-container");
   pageWrapper.appendChild(pageContentContainer);
 
   pageContentContainer.appendChild(header());
