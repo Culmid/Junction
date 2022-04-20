@@ -1,6 +1,6 @@
 import { displayCheckout } from "./displays/displayCheckout.js";
 import { handleCartHover } from "./handlers/handleCartHover.js";
-import { updateAll } from "./handlers/handleUpdate.js";
+import { countInit } from "./handlers/handleUpdate.js";
 
 function checkout() {
   displayCheckout();
@@ -10,7 +10,7 @@ function checkout() {
     displayCheckout();
   });
 
-  updateAll();
+  countInit();
 }
 
 checkout();

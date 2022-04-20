@@ -1,4 +1,4 @@
-import { updateAll } from "../handlers/handleUpdate.js";
+import { updateCount } from "../handlers/handleUpdate.js";
 
 /**
  * Adds an item to our cart.
@@ -14,7 +14,7 @@ function addToCart(product) {
     window.localStorage.setItem("cart", JSON.stringify(cart));
   }
 
-  updateAll();
+  updateCount();
 }
 
 /**
@@ -35,7 +35,7 @@ function removeFromCart(product) {
     }
   }
 
-  updateAll();
+  updateCount();
 }
 
 /**
@@ -54,7 +54,7 @@ function removeAllFromCart(product) {
     );
   }
 
-  updateAll();
+  updateCount();
 }
 
 /**
@@ -66,7 +66,7 @@ function removeByIndex(index) {
   cart.splice(index, 1);
   window.localStorage.setItem("cart", JSON.stringify(cart));
 
-  updateAll();
+  updateCount();
 }
 
 /**
@@ -83,7 +83,7 @@ function getCartTotal() {
 function clearCart() {
   window.localStorage.removeItem("cart");
 
-  updateAll();
+  updateCount();
 }
 
 /**

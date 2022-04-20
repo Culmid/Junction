@@ -1,12 +1,7 @@
 import { getCartCount } from "../utilities/shoppingCart.js";
 
-/**
- * Update all Dynamic Values -> Dropdown, Checkout, Count
- */
-function updateAll() {
-  // Might be duplicated
+function countInit() {
   window.addEventListener("storage", () => updateCount());
-
   updateCount();
 }
 
@@ -15,4 +10,4 @@ function updateCount() {
   cartCount.innerHTML = getCartCount();
 }
 
-export { updateAll };
+export { updateCount, countInit };
