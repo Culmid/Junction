@@ -103,7 +103,7 @@ function productDescription({ id, name, description }) {
  */
 function productShopInfo(product) {
   const productShopInfo = document.createElement("div");
-  productShopInfo.className = "product-shop-info";
+  productShopInfo.classList.add("product-shop-info");
 
   productShopInfo.appendChild(productPrices(product));
   productShopInfo.appendChild(addToCartButton(product));
@@ -118,7 +118,7 @@ function productShopInfo(product) {
  */
 function productPrices({ price, discounted_price }) {
   const productPrices = document.createElement("div");
-  productPrices.className = "product-prices";
+  productPrices.classList.add("product-prices");
 
   if (discounted_price < price) {
     const productPriceTop = document.createElement("div");

@@ -1,6 +1,7 @@
 import { displayProduct } from "./displays/displayProduct.js";
 import { handleCartHover } from "./handlers/handleCartHover.js";
 import { countInit } from "./handlers/handleUpdate.js";
+import { constructPage } from "./utilities/constructPage.js";
 import { API_URL } from "./utilities/shared.js";
 import { doFetch } from "./utilities/utils.js";
 
@@ -18,4 +19,5 @@ async function product() {
   countInit();
 }
 
+constructPage();
 product();

@@ -39,6 +39,7 @@ function productListHeader() {
 function productList(products) {
   const productList = document.createElement("ul");
   productList.classList.add("product-list");
+  productList.id = "product-list";
 
   products.slice(max_products, (max_products += 3)).forEach((product) => {
     const listItem = document.createElement("li");
@@ -63,7 +64,7 @@ function showMoreButton(products) {
     const productSlice = products.slice(max_products, (max_products += 3));
 
     if (productSlice.length > 0) {
-      const productList = document.getElementsByClassName("product-list")[0];
+      const productList = document.getElementById("product-list");
 
       productSlice.forEach((product) => {
         const listItem = document.createElement("li");

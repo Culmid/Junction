@@ -32,25 +32,13 @@ export { _s_n_o_i_t_p_o_ };
 
 ## Design
 
-### Discount Banner
+### Home Page
 
-![Discount Banner](https://user-images.githubusercontent.com/69891978/161719850-70068182-d899-42fc-b9a3-660a17c797f7.png "Discount Banner")
-
-### Header
-
-![Header](https://user-images.githubusercontent.com/69891978/161712364-bd0996ff-8d0f-4e1f-889a-1930c93f37d7.png "Header")
-
-### Product List
-
-![Product List](https://user-images.githubusercontent.com/69891978/161723124-be83e32f-31d2-4cb0-ae6e-5e139e8dcc09.png "Product List")
-
-### Footer
-
-![Footer](https://user-images.githubusercontent.com/69891978/161718943-93a78d17-3ba7-4912-be66-6c3b45f39b59.png "Footer")
+![Home Page](https://user-images.githubusercontent.com/69891978/164219155-9e12ff5b-1d78-4138-8b2e-ff87fc593da5.png "Home Page")
 
 ### Single Product Page
 
-![Single Product Page](https://user-images.githubusercontent.com/69891978/162163830-1d1677a0-0b7a-4454-900b-5d52baa302f2.png "Single Product Page")
+![Single Product Page](https://user-images.githubusercontent.com/69891978/164219465-78202494-06c9-4d03-aba9-177e18ab36bd.png "Single Product Page")
 
 ### Checkout Page
 
