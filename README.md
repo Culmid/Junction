@@ -16,7 +16,7 @@ The relevant scripts make use of a number of children scripts to do much of the 
 
 Most of the information presented is fetched from an API, which was purpose designed to build this site.
 
-Note: One needs to have a `config.js` file in the root directory if you would like to experience the pay button easter egg. It involves a call to a free api on RapidApi, so your relevant key is included here.
+Note: One needs to have a `config.js` file in the root directory if you would like to experience the pay button easter egg. It involves a call to a free API on RapidApi, so your relevant key is included here.
 
 ```js
 const _s_n_o_i_t_p_o_ = {
@@ -58,6 +58,6 @@ export { _s_n_o_i_t_p_o_ };
 
 ![Checkout Page](https://user-images.githubusercontent.com/69891978/164212306-73277600-f9bf-4515-9529-4c167dc8c374.png "Checkout Page")
 
-### Empty
+#### Empty
 
 ![Checkout Page](https://user-images.githubusercontent.com/69891978/164212457-ac743ea1-2868-4694-9f11-ddab8653a06a.png "Checkout Page")
