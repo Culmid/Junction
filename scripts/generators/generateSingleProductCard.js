@@ -1,4 +1,4 @@
-import { formatPrice, onAddToCart } from "../utilities/utils.js";
+import { formatPrice } from "../utilities/utils.js";
 
 /**
  * Generate single product card for product.html.
@@ -123,7 +123,7 @@ function addToCartButton(product) {
   const addToCart = document.createElement("button");
   addToCart.classList.add("dark-pink-button");
   addToCart.innerHTML = "add to cart";
-  addToCart.addEventListener("click", () => onAddToCart(product));
+  addToCart.addEventListener("click", () => addToCart(product));
 
   return addToCart;
 }
