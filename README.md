@@ -16,20 +16,6 @@ The relevant scripts make use of a number of children scripts to do much of the 
 
 Most of the information presented is fetched from an API, which was purpose designed to build this site.
 
-Note: One needs to have a `config.js` file in the root directory if you would like to experience the pay button easter egg. It involves a call to a free API on RapidApi, so your relevant key is included here.
-
-```js
-const _s_n_o_i_t_p_o_ = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Host": "numbersapi.p.rapidapi.com",
-    "X-RapidAPI-Key": "<YOUR_KEY_HERE>",
-  },
-};
-
-export { _s_n_o_i_t_p_o_ };
-```
-
 ## Design
 
 ### Home Page
